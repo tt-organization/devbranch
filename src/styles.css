@@ -1,4 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
-h4 {
+
+body {
+  background-color: #ff8724;
   text-align: center;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2em;
+}
+
+.wrapper {
+  margin-top: 125px;
+  display: inline-block;
+  background-color: #ffc99dd6;
+  width: 500px;
+  border-top-right-radius: 200px 200px;
+  border-top-left-radius: 200px 200px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.logo {
+  margin-top: 50px;
+  text-align: center;
+}
+
+img {
+  border-radius: 50%;
+  width: 400px;
+}
+
+.choice {
+  text-align: center;
+}
+
+button {
+  margin: 0px 50px 50px 50px;
+  background-color: #3366DD; /* Green */
+  border: none;
+  color: white;
+  padding: 14px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  cursor: pointer;
+}
+
+a {
+  margin: 0px 50px 50px 50px;
+  background-color: #3366DD; /* Green */
+  border: none;
+  color: white;
+  padding: 14px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  cursor: pointer;
 }

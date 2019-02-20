@@ -3,13 +3,25 @@
 <head>
   <meta charset="utf-8">
   <title>TruckTracker</title>
-  <h4>Best group EVVVVAAAA</h4>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
 </head>
 <body>
-  <app-root></app-root>
+  <div class="wrapper">
+    <div class="logo">
+      <img class="img-responsive" src="assets/img/moclogo.png">
+    </div>
+    <h3>I am..</h3>
+    <div class="choice">
+        <button [routerLink]=" ['user'] ">Hungry</button>
+        <a routerLink='login'>A Truck</a>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+
 </body>
 </html>
