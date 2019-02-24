@@ -1,16 +1,8 @@
 <div class="wrapper">
-    <div class="logo">
-      <img class="img-responsive" src="assets/img/moclogo.png">
-    </div>
-    <h1>{{ title }}</h1>
-    <h3>I am..</h3>
-    <div class="choice">
-      <nav>
-          <a routerLink= "/user">Hungry</a>
-          <a routerLink="/login">A Truck</a>
-      </nav>
-    </div>
+  <div class="logo">
+    <img class="img-responsive" routerLink="/home" src="assets/img/moclogo.png">
   </div>
-  
-    <router-outlet></router-outlet>
-    <app-messages></app-messages>
+  <h1>{{ title }}</h1>
+</div>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
