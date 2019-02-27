@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { HomeScreenComponent } from './home-screen/home-screen.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    HomeScreenComponent
   ],
   imports: [
     BrowserModule,
