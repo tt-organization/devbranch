@@ -4,11 +4,12 @@ body {
 }
 
 .wrapper {
-  margin-top: 80px;
+  margin-top: 150px;
   margin-bottom: 80px;
 }
 
 .form-signin {
+  border-radius: 7px;
   max-width: 380px;
   padding: 15px 35px 45px;
   margin: 0 auto;
@@ -21,6 +22,7 @@ body {
 }
 .form-signin .checkbox {
   font-weight: normal;
+  text-align: left;
 }
 .form-signin .form-control {
   position: relative;
@@ -43,4 +45,8 @@ body {
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+#blue-button {
+  background-color: #3366DD;
 }
