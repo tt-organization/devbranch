@@ -44,4 +44,11 @@
 
 #blue-button {
   background-color: #3366DD;
+  margin-bottom: 8px;
+}
+
+a {
+  font-size: 0.9em;
+  color: #3366DD;
+  text-decoration-line: underline;
 }
