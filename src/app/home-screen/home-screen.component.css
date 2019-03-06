@@ -8,7 +8,8 @@
     margin-top: 125px;
     display: inline-block;
     background-color: #ffc99dd6;
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     border-top-right-radius: 200px 200px;
     border-top-left-radius: 200px 200px;
     border-bottom-right-radius: 25px;
@@ -23,7 +24,9 @@
 
   img {
     border-radius: 50%;
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
     text-align: center;
   }
 
@@ -44,3 +47,23 @@
     font-size: 16px;
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 600px) {
+    .wrapper {
+      max-width: 350px;
+    }
+
+    img {
+      max-width: 300px;
+    }
+
+    a {
+      margin: 20px 50px 10px 50px;
+    }
+
+    .choice {
+      padding-bottom: 40px;
+    }
+
+  }
+
