@@ -3,9 +3,10 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './truck-owner/login/login.component';
 import { UserComponent } from './user/user.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -13,7 +14,8 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
     AppComponent,
     LoginComponent,
     UserComponent,
-    HomeScreenComponent
+    HomeScreenComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
