@@ -20,7 +20,7 @@ export class NewAccountComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       phone: ['', Validators.required]
-    })
+    });
   }
 
   onClick(user) {
