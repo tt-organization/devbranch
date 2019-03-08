@@ -9,7 +9,7 @@ import { LoginComponent } from './truck-owner/login/login.component';
 import { UserComponent } from './user/user.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavComponent } from './nav/nav.component';
-import { NewAccountComponent } from './new-account/new-account.component';
+import { NewAccountComponent } from './truck-owner/new-account/new-account.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
