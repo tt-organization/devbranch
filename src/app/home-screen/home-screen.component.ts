@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-screen.component.css']
 })
 export class HomeScreenComponent implements OnInit {
-
+  title: 'Truck Tracker';
   constructor() { }
 
   ngOnInit() {
