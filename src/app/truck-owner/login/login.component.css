@@ -1,6 +1,9 @@
+
+
 .wrapper {
   margin-top: 150px;
   margin-bottom: 80px;
+  text-align: center;
 }
 
 .form-signin {
@@ -8,8 +11,8 @@
   max-width: 380px;
   padding: 15px 35px 45px;
   margin: 0 auto;
-  background-color: #fff6ef;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #0000001a;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -33,18 +36,19 @@
 }
 .form-signin input[type="text"] {
   margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 .form-signin input[type="password"] {
   margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+}
+
+label {
+  width: 300px;
 }
 
 #blue-button {
   background-color: #3366DD;
   margin-bottom: 8px;
+  margin-top: 5px;
 }
 
 a {
