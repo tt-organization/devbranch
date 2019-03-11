@@ -8,7 +8,6 @@ import { UserModule } from './user/user.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavComponent } from './nav/nav.component';
 
@@ -16,7 +15,6 @@ import { NavComponent } from './nav/nav.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
-    UserComponent,
     HomeScreenComponent,
     NavComponent
   ],
