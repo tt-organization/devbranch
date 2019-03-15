@@ -1,0 +1,135 @@
+<div class="wrapper">
+  <form [formGroup]="newTruckForm" (ngSubmit)="createTruck(newTruckForm.value)" class="form-signin">
+      <h2 class="form-signin-heading">Create A New Truck</h2>
+    <h5 *ngIf="success">Your account has been created!</h5>
+
+    <label>
+      <input type="text" formControlName="truckName" class="form-control" autofocus="" placeholder="Food Truck Name">
+      <div *ngIf="submitted && newTruckForm.controls.truckName.errors" class="error">
+        <div *ngIf="newTruckForm.controls.truckName.errors.required">The name of your Food Truck is required</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="city" class="form-control" placeholder="City">
+      <div *ngIf="submitted && newTruckForm.controls.city.errors" class="error">
+        <div *ngIf="newTruckForm.controls.city.errors.required">Please enter your city</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="sundayOpen" class="form-control" placeholder="Sunday Open Time">
+      <div *ngIf="submitted && newTruckForm.controls.sundayOpen.errors" class="error">
+        <div *ngIf="newTruckForm.controls.sundayOpen.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.sundayOpen.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="sundayClose" class="form-control" placeholder="Sunday Close Time">
+      <div *ngIf="submitted && newTruckForm.controls.sundayClose.errors" class="error">
+        <div *ngIf="newTruckForm.controls.sundayClose.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.sundayClose.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="mondayOpen" class="form-control" placeholder="Monday Open Time">
+      <div *ngIf="submitted && newTruckForm.controls.mondayOpen.errors" class="error">
+        <div *ngIf="newTruckForm.controls.mondayOpen.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.mondayOpen.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="mondayClose" class="form-control" placeholder="Monday Close Time">
+      <div *ngIf="submitted && newTruckForm.controls.mondayClose.errors" class="error">
+        <div *ngIf="newTruckForm.controls.mondayClose.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.mondayClose.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="tuesdayOpen" class="form-control" placeholder="Tuesday Open Time">
+      <div *ngIf="submitted && newTruckForm.controls.tuesdayOpen.errors" class="error">
+        <div *ngIf="newTruckForm.controls.tuesdayOpen.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.tuesdayOpen.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="tuesdayClose" class="form-control" placeholder="Tuesday Close Time">
+      <div *ngIf="submitted && newTruckForm.controls.tuesdayClose.errors" class="error">
+        <div *ngIf="newTruckForm.controls.tuesdayClose.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.tuesdayClose.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="wednesdayOpen" class="form-control" placeholder="Wednesday Open Time">
+      <div *ngIf="submitted && newTruckForm.controls.wednesdayOpen.errors" class="error">
+        <div *ngIf="newTruckForm.controls.wednesdayOpen.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.wednesdayOpen.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="wednesdayClose" class="form-control" placeholder="Wednesday Close Time">
+      <div *ngIf="submitted && newTruckForm.controls.wednesdayClose.errors" class="error">
+        <div *ngIf="newTruckForm.controls.wednesdayClose.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.wednesdayClose.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="thursdayOpen" class="form-control" placeholder="Thursday Open Time">
+      <div *ngIf="submitted && newTruckForm.controls.thursdayOpen.errors" class="error">
+        <div *ngIf="newTruckForm.controls.thursdayOpen.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.thursdayOpen.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="thursdayClose" class="form-control" placeholder="Thursday Close Time">
+      <div *ngIf="submitted && newTruckForm.controls.thursdayClose.errors" class="error">
+        <div *ngIf="newTruckForm.controls.thursdayClose.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.thursdayClose.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="fridayOpen" class="form-control" placeholder="Friday Open Time">
+      <div *ngIf="submitted && newTruckForm.controls.fridayOpen.errors" class="error">
+        <div *ngIf="newTruckForm.controls.fridayOpen.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.fridayOpen.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="fridayClose" class="form-control" placeholder="Friday Close Time">
+      <div *ngIf="submitted && newTruckForm.controls.fridayClose.errors" class="error">
+        <div *ngIf="newTruckForm.controls.fridayClose.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.fridayClose.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="saturdayOpen" class="form-control" placeholder="Saturday Open Time">
+      <div *ngIf="submitted && newTruckForm.controls.saturdayOpen.errors" class="error">
+        <div *ngIf="newTruckForm.controls.saturdayOpen.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.saturdayOpen.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="saturdayClose" class="form-control" placeholder="Saturday Close Time">
+      <div *ngIf="submitted && newTruckForm.controls.saturdayClose.errors" class="error">
+        <div *ngIf="newTruckForm.controls.saturdayClose.errors.required">Please enter a time using 24hr clock. Where 1pm is 13</div>
+        <div *ngIf="newTruckForm.controls.saturdayClose.errors.maxlength">The time must be either one digit or two</div>
+      </div>
+    </label>
+
+    <button class="btn btn-lg btn-primary btn-block" id="blue-button" type="submit">Create Account </button>
+
+  </form>
+  </div>
