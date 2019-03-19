@@ -1,0 +1,27 @@
+#banner {
+    background-color: #5eaae0;
+    text-align: unset;
+}
+
+#bannerLogo {
+    display: inline-block;
+    text-align: start;
+}
+
+#logo {
+    width: 8%;
+    display: inline-block;
+    border-radius: 100%;
+    margin: 0.5%;
+}
+
+.navLink {
+    background-color: transparent;
+    border-style: none;
+    color: white;
+}
+
+#links {
+    display: inline-block;
+    text-align: right;
+}

@@ -6,6 +6,9 @@ import { TruckDetailComponent } from './truck-detail/truck-detail.component';
   declarations: [TruckDetailComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    TruckDetailComponent
   ]
 })
-export class TruckModuleModule { }
+export class TruckModule { }

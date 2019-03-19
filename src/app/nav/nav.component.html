@@ -1,3 +1,9 @@
-<p>
-  nav works!
-</p>
+<div id='banner'>
+    <div id='bannerLogo'>
+        <img id='logo' routerLink='/home' src="assets/img/moclogo.png">
+    </div>
+    <div id='links'>
+        <button class='navLink' *ngIf='signedIn()' routerLink="/truck/{{ getTruckId() }}">View Profile</button>
+        <button class='navLink' *ngIf='signedIn()' (click)='signOut()' routerLink='/home'>Sign Out</button>
+    </div>
+</div>
