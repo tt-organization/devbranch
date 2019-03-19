@@ -12,6 +12,8 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavComponent } from './nav/nav.component';
 import { Truck } from './truck/truck';
 
+
+
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [

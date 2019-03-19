@@ -13,7 +13,7 @@ export class NewAccountComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder, private data: TruckerDataService) { 
+  constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
     this.accountForm = this.formBuilder.group ({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -26,7 +26,7 @@ export class NewAccountComponent implements OnInit {
   onClick(user) {
     this.submitted = true;
     console.log("Entered click");
-    
+
     if (this.accountForm.invalid) {
       return;
     }

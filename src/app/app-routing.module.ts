@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'user', component: ViewComponent },
   { path: 'create', component: NewAccountComponent },
-  { path: 'truck/-1', component: TruckDetailComponent }
+  { path: 'truck/-1', component: TruckDetailComponent },
+  { path: 'view', component: ViewComponent },
 
 ];
 
