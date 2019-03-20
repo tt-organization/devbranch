@@ -8,9 +8,7 @@ import { Truck } from '../truck/truck';
 })
 export class NavComponent implements OnInit {
   
-  constructor(private truck: Truck) { 
-    this.truck = truck;
-  }
+  constructor(private truck: Truck) { }
 
   ngOnInit() {
     this.truck = null;

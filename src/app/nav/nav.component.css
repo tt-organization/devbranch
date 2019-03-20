@@ -1,11 +1,10 @@
 #banner {
-    background-color: #5eaae0;
-    text-align: unset;
+    background-color: #ffc99dd6;
 }
 
 #bannerLogo {
     display: inline-block;
-    text-align: start;
+    text-align: left;
 }
 
 #logo {
@@ -18,10 +17,11 @@
 .navLink {
     background-color: transparent;
     border-style: none;
-    color: white;
+    color: rgb(48, 47, 47);
 }
 
 #links {
     display: inline-block;
     text-align: right;
+    font-size: 12pt;
 }
