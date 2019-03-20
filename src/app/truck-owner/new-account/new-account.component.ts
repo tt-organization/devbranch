@@ -11,7 +11,9 @@ export class NewAccountComponent implements OnInit {
 
   accountForm: FormGroup;
   submitted = false;
-  success = false;
+  success: Boolean;
+  result: Object;
+  string: String = '';
 
   constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
     this.accountForm = this.formBuilder.group ({
@@ -38,8 +40,10 @@ export class NewAccountComponent implements OnInit {
       "password": user.password,
       "phone": user.phone
       };
-      this.data.sendUserData(body).subscribe();
-    this.success = true;
+      this.data.sendUserData(body).subscribe(data => {
+        this.result = data.result;
+        this.success = data.result.Success;
+      });
   }
 
   ngOnInit() {
