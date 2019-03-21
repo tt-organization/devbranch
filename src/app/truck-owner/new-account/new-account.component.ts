@@ -12,6 +12,7 @@ export class NewAccountComponent implements OnInit {
   accountForm: FormGroup;
   submitted = false;
   success = false;
+  results: Object;
 
   constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
     this.accountForm = this.formBuilder.group ({
@@ -25,7 +26,6 @@ export class NewAccountComponent implements OnInit {
 
   onClick(user) {
     this.submitted = true;
-    console.log("Entered click");
 
     if (this.accountForm.invalid) {
       return;
@@ -38,7 +38,10 @@ export class NewAccountComponent implements OnInit {
       "password": user.password,
       "phone": user.phone
       };
-      this.data.sendUserData(body).subscribe();
+      this.data.sendUserData(body).subscribe(data => {
+        this.results = data;
+        console.log(this.results);
+      });
     this.success = true;
   }
 

@@ -1,44 +1,46 @@
 <div class="wrapper">
-<form [formGroup]="accountForm" (ngSubmit)="onClick(accountForm.value)" class="form-signin">
-    <h2 class="form-signin-heading">Create Account</h2>
-  <h5 *ngIf="success">Your account has been created!</h5>
+    <form [formGroup]="accountForm" (ngSubmit)="onClick(accountForm.value)" class="form-signin">
+      <h2 class="form-signin-heading">Create Account</h2>
+    <h5 *ngIf="success">{{ message }}</h5>
 
-  <label>
-    <input type="text" formControlName="firstName" class="form-control" autofocus="" placeholder="First Name">
-    <div *ngIf="submitted && accountForm.controls.firstName.errors" class="error">
-      <div *ngIf="accountForm.controls.firstName.errors.required">Your first name is required</div>
+    <label>
+      <input type="text" formControlName="firstName" class="form-control" autofocus="" placeholder="First Name">
+      <div *ngIf="submitted && accountForm.controls.firstName.errors" class="error">
+        <div *ngIf="accountForm.controls.firstName.errors.required">Your first name is required</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+      <div *ngIf="submitted && accountForm.controls.lastName.errors" class="error">
+        <div *ngIf="accountForm.controls.lastName.errors.required">Your last name is required</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="email" class="form-control" placeholder="Email">
+      <div *ngIf="submitted && accountForm.controls.email.errors" class="error">
+        <div *ngIf="accountForm.controls.email.errors.email || accountForm.controls.email.errors.required">Please enter a valid email address</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="password" formControlName="password" class="form-control" placeholder="Password">
+      <div *ngIf="submitted && accountForm.controls.password.errors" class="error">
+        <div *ngIf="accountForm.controls.password.errors.required || accountForm.controls.password.errors.minlength">Please enter a valid password</div>
+      </div>
+    </label>
+
+    <label>
+      <input type="text" formControlName="phone" class="form-control" placeholder="Password" placeholder="Phone Number">
+      <div *ngIf="submitted && accountForm.controls.phone.errors" class="error">
+        <div *ngIf="accountForm.controls.phone.errors.required">Please enter a valid phone number</div>
+      </div>
+    </label>
+
+    <button class="btn btn-lg btn-primary btn-block" id="blue-button" type="submit">Create Account </button>
+    <div *ngIf="success">
+      <a routerLink= "/newTruck">Create New Truck</a>
     </div>
-  </label>
-
-  <label>
-    <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
-    <div *ngIf="submitted && accountForm.controls.lastName.errors" class="error">
-      <div *ngIf="accountForm.controls.lastName.errors.required">Your last name is required</div>
-    </div>
-  </label>
-
-  <label>
-    <input type="text" formControlName="email" class="form-control" placeholder="Email">
-    <div *ngIf="submitted && accountForm.controls.email.errors" class="error">
-      <div *ngIf="accountForm.controls.email.errors.email || accountForm.controls.email.errors.required">Please enter a valid email address</div>
-    </div>
-  </label>
-
-  <label>
-    <input type="password" formControlName="password" class="form-control" placeholder="Password">
-    <div *ngIf="submitted && accountForm.controls.password.errors" class="error">
-      <div *ngIf="accountForm.controls.password.errors.required || accountForm.controls.password.errors.minlength">Please enter a valid password</div>
-    </div>
-  </label>
-
-  <label>
-    <input type="text" formControlName="phone" class="form-control" placeholder="Password" placeholder="Phone Number">
-    <div *ngIf="submitted && accountForm.controls.phone.errors" class="error">
-      <div *ngIf="accountForm.controls.phone.errors.required">Please enter a valid phone number</div>
-    </div>
-  </label>
-
-  <button class="btn btn-lg btn-primary btn-block" id="blue-button" type="submit">Create Account </button>
-
-</form>
+  </form>
 </div>
