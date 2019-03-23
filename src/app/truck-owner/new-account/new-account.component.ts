@@ -41,9 +41,9 @@ export class NewAccountComponent implements OnInit {
       "phone": user.phone
       };
       this.data.sendUserData(body).subscribe(data => {
-        this.result = data.result;
-        this.success = data.result.Success;
+        this.string = data["Message"];
       });
+      this.success = true;
   }
 
   ngOnInit() {

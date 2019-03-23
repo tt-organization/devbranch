@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-interface Test {
-  success: Boolean;
-  message: String
-  result: [];
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +13,6 @@ export class TruckerDataService {
   }
 
   sendTruckData(truck) {
-    return this.http.post<Test>('/sendTruck.php', truck);
+    return this.http.post('/sendTruck.php', truck);
   }
 }

@@ -8,7 +8,7 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
-  getMenu(data) {
+  getBusinessInfo(data) {
     return this.http.post('/data.php', data);
   }
 }
