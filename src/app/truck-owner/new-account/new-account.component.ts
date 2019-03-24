@@ -25,7 +25,6 @@ export class NewAccountComponent implements OnInit {
 
   onClick(user) {
     this.submitted = true;
-    console.log("Entered click");
 
     if (this.accountForm.invalid) {
       return;
@@ -37,9 +36,12 @@ export class NewAccountComponent implements OnInit {
       "email": user.email,
       "password": user.password,
       "phone": user.phone
-      }
-      this.data.sendUserData(body);
-    this.success = true;
+      };
+      this.data.sendUserData(body).subscribe(data => {
+
+        this.string = data["Message"];
+      });
+      this.success = true;
   }
 
   ngOnInit() {
