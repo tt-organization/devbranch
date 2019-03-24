@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
   }
 
   signedIn()  {
-    // return true;
+    return true;
     return this.truck != null;
   }
 

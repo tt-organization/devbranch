@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Truck } from '../truck';
 
 @Component({
   selector: 'app-truck-detail',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TruckDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private truck: Truck) { }
 
   ngOnInit() {
   }
