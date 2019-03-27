@@ -1,6 +1,4 @@
-
 import { Component, OnInit } from '@angular/core';
-import { TruckDataService } from './../../truck-data.service';
 
 @Component({
   selector: 'app-view',
@@ -9,15 +7,9 @@ import { TruckDataService } from './../../truck-data.service';
 })
 export class ViewComponent implements OnInit {
 
-  trucks: object;
-
-  constructor(private data: TruckDataService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.data.gettrucks().subscribe(data => {
-      this.trucks = data;
-      console.log(this.trucks);
-    });
   }
 
 }
