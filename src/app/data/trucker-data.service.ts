@@ -13,6 +13,6 @@ export class TruckerDataService {
   }
 
   sendTruckData(truck) {
-    return this.http.post('/sendTruck.php', truck).subscribe();
+    return this.http.post('/sendTruck.php', truck);
   }
 }
