@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Truck } from '../truck/truck';
+import { Component, OnInit, Optional } from '@angular/core';
+//import { Truck } from '../truck/truck';
 
 @Component({
   selector: 'app-nav',
@@ -7,29 +7,37 @@ import { Truck } from '../truck/truck';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  
-  constructor(private truck: Truck) { }
 
-  ngOnInit() {
-    this.truck = null;
+  truck: number;
+  static instance: NavComponent;
+  constructor() { 
+    this.truck = -1;
   }
 
-  setTruck(truck: Truck) {
-    this.truck = truck;
+  static getInstance() {
+    if (this.instance == null) return new NavComponent();
+    return this.instance;
+  }
+
+  ngOnInit() { 
+    console.log("truck: " + this.truck);
+  }
+
+  public setTruck(truck: number) {
+    this.truck = truck;    
+    console.log("setting truck: " + this.truck);
   }
 
   getTruckId() {
-    if (this.truck == null) return -1;
-    return this.truck.id;
+    return this.truck;
   }
 
   signedIn()  {
-    return true;
-    return this.truck != null;
+    return this.truck >= 0;
   }
 
   signOut() {
-    this.truck = null;
+    this.truck = -1;
   }
 
 }

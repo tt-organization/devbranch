@@ -1,15 +1,14 @@
-<div *ngIf='truck == null || truck.id == -1'>Error! No truck selected</div> 
-<div *ngIf='truck != null && truck.id != -1' class='container'>
+<div class='container'>
   <div class='map'>
     <app-map></app-map>
   </div>
 
   <div class='title'>
-    <h2>Title: {{truck.name}}</h2>
+    <h2>Title: {{ truck.name }}</h2>
   </div>
 
   <div class='location'>
-    <p>location {{truck.location}}</p>
+    <p>location {{ truck.location }}</p>
   </div>
 
   <div class=hours>

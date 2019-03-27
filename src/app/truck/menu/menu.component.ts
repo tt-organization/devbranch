@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Menu } from '../menu';
 import { Truck } from '../truck';
 
 @Component({

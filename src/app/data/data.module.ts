@@ -6,7 +6,6 @@ import { TruckerDataService } from './trucker-data.service';
   declarations: [],
   imports: [
     CommonModule
-  ],
-  exports: [ TruckerDataService ]
+  ]
 })
 export class DataModule { }

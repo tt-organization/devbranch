@@ -1,6 +1,6 @@
 import { Menu } from './menu';
 
-export class Truck {
+export class Truck extends Object {
     id: number;
     name: String; 
     hours: String[];

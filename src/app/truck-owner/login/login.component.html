@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin">
+  <form [formGroup]="loginForm" (ngSubmit)='onSubmit(loginForm.value)' class="form-signin">
     <h2 class="form-signin-heading">Login</h2>
     <label>
       <input type="text" formControlName="username" class="form-control" placeholder="Email Address" autofocus="">
@@ -19,6 +19,7 @@
       <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
     </label> -->
     <button class="btn btn-lg btn-primary btn-block" id="blue-button" type="submit">Login</button>
+    <div *ngIf='success' routerLink='/truck/{{ this.nav.getTruckId() }}'></div>
     <a routerLink= "/create">Sign Up</a><br>
   </form>
 </div>
