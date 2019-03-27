@@ -5,10 +5,14 @@ import { MapComponent } from './map/map.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AgmCoreModule } from '@agm/core';
 
-
 @NgModule({
   declarations: [ViewComponent, MapComponent],
   imports: [
+    CommonModule
+  ],
+  exports: [
+    MapComponent
+=======
     CommonModule,
     AppRoutingModule,
     AgmCoreModule

@@ -1,7 +1,7 @@
 <div class="wrapper">
 <form [formGroup]="accountForm" (ngSubmit)="onClick(accountForm.value)" class="form-signin">
     <h2 class="form-signin-heading">Create Account</h2>
-  <h5 *ngIf="success">{{ string }}</h5>
+  <h5 *ngIf="success">Your account has been created!</h5>
 
 
     <label>

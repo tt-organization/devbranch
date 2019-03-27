@@ -21,6 +21,7 @@ export class MapComponent implements OnInit {
       this.lat = data.coords.latitude;
       this.long = data.coords.longitude;
     });
+
   }
 
 }
