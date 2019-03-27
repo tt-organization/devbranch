@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavComponent } from './nav/nav.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -27,7 +28,10 @@ import { NavComponent } from './nav/nav.component';
     HttpClientModule,
     ReactiveFormsModule,
     TruckOwnerModule,
-    UserModule
+    UserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCbquhLC8XjOT_-5V_5Wd-js_nT7n3YzKs'
+    })
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
