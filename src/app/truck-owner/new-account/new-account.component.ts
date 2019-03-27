@@ -11,7 +11,9 @@ export class NewAccountComponent implements OnInit {
 
   accountForm: FormGroup;
   submitted = false;
-  success = false;
+  success: Boolean;
+  result: Object;
+  string: String = '';
 
   constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
     this.accountForm = this.formBuilder.group ({
