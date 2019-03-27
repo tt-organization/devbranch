@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MapServiceService } from './map-service.service';
 
 @Component({
   selector: 'app-map',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  lat : number;
+  long : number;
+
+  Location : Object;
+
+  constructor(private map: MapServiceService) { }
 
   ngOnInit() {
+    navigator.geolocation.getCurrentPosition(data => {
+      console.log(data);
+      this.lat = data.coords.latitude;
+      this.long = data.coords.longitude;
+    });
+
   }
 
 }

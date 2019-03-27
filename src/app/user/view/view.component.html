@@ -1,6 +1,7 @@
 <h1>
   view works! it really really works
 </h1>
+<app-map></app-map>
 <ul *ngIf="trucks">
   <li *ngFor = "let truck of trucks.Trucks">
     <p>{{ truck.Truck_Name }} {{ truck.Location }}</p>
@@ -13,3 +14,4 @@
     <h2>Saturday:</h2> <p>{{ truck.Open_Saturday }} {{ truck.Close_Saturday }}</p>
   </li>
 </ul>
+
