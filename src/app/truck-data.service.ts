@@ -4,11 +4,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService {
+export class TruckDataService {
 
   constructor(private http: HttpClient) { }
 
-  getBusinessInfo(data) {
-    return this.http.post('/data.php', data);
+  gettrucks() {
+    return this.http.get('/truckList.php');
   }
+
 }
