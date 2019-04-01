@@ -1,12 +1,14 @@
-import { TruckComponent } from './truck.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TruckDetailComponent } from './truck-detail/truck-detail.component';
+import { MenuComponent } from './menu/menu.component';
+import { UserModule } from '../user/user.module';
 
 @NgModule({
-  declarations: [TruckDetailComponent, TruckComponent],
+  declarations: [TruckDetailComponent, MenuComponent, UserModule],
   imports: [
-    CommonModule
+    CommonModule,
+    UserModule
   ]
 })
-export class TruckModuleModule { }
+export class TruckModule { }
