@@ -12,6 +12,7 @@ import { AgmCoreModule } from '@agm/core';
     CommonModule,
     AppRoutingModule,
     AgmCoreModule
-  ]
+  ],
+  exports: [MapComponent]
 })
 export class UserModule { }

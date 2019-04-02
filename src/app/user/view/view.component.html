@@ -1,4 +1,15 @@
-<p>
-    Map!
-    <app-map></app-map>
-</p>
+<h1>
+    view works! it really really works
+  </h1>
+  <ul *ngIf="trucks">
+    <li *ngFor = "let truck of trucks.Trucks">
+      <p>{{ truck.Truck_Name }} {{ truck.Location }}</p>
+      <h2>Sunday:</h2> <p>{{ truck.Open_Sunday }} {{ truck.Close_Sunday }}</p>
+      <h2>Monday:</h2> <p>{{ truck.Open_Monday }} {{ truck.Close_Monday }}</p>
+      <h2>Tursday:</h2> <p>{{ truck.Open_Tuesday }} {{ truck.Close_Tuesday }}</p>
+      <h2>Wednesday:</h2> <p>{{ truck.Open_Wednesday }} {{ truck.Close_Wednesday }}</p>
+      <h2>Thursday:</h2> <p>{{ truck.Open_Thursday }} {{ truck.Close_Thursday }}</p>
+      <h2>Friday:</h2> <p>{{ truck.Open_Friday }} {{ truck.Close_Friday }}</p>
+      <h2>Saturday:</h2> <p>{{ truck.Open_Saturday }} {{ truck.Close_Saturday }}</p>
+    </li>
+  </ul>
