@@ -17,6 +17,9 @@ export class ViewComponent implements OnInit {
       this.trucks = data;
       console.log(this.trucks);
     });
+
+    let date = new Date();
+    let today = date.getUTCDay();
   }
 
 }

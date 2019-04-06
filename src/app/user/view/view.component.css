@@ -1,0 +1,81 @@
+body {
+  display: grid;
+  grid-template-areas:
+    "nav article"
+    "nav ads";
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 1fr 50%;
+  grid-row-gap: 3px;
+  grid-column-gap: 3px;
+  height: 100vh;
+  margin: 0;
+}
+
+  article, nav, div {
+    padding: 1.2em;
+    background: #fffaf5d6;
+  }
+
+  #mapSpecifications {
+    grid-area: article;
+  }
+
+  #mapDisplay {
+    grid-area: nav;
+  }
+
+  #truckList {
+    grid-area: ads;
+    text-align: left;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #inner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  #inner-grid li h1,
+  #inner-grid li h4 {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #inner-grid li h4 {
+    text-align: right;
+    float: right;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  h1 {
+    color: #3366DD;
+  }
+
+  select{
+    padding: 5px;
+  }
+
+
+
+
+
+/* Stack the layout on small devices/viewports. */
+@media all and (max-width: 575px) {
+  body {
+    grid-template-areas:
+      "nav"
+      "article"
+      "ads";
+    grid-template-rows: 1fr 70px 1fr;
+    grid-template-columns: 1fr;
+ }
+}
