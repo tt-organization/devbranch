@@ -1,3 +1,4 @@
+import { PasswordValidatorDirective, compareValidator } from './../../data/password-validator.directive';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TruckerDataService } from '../../data/trucker-data.service';
@@ -15,12 +16,15 @@ export class NewAccountComponent implements OnInit {
   result: Object;
   string: String = '';
 
-  constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
+  constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {}
+
+  ngOnInit() {
     this.accountForm = this.formBuilder.group ({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
+      passCheck: ['', [Validators.required, compareValidator('password')]],
       phone: ['', Validators.required]
     });
   }
@@ -42,11 +46,7 @@ export class NewAccountComponent implements OnInit {
       this.data.sendUserData(body).subscribe(data => {
 
         this.string = data["Message"];
+        this.success = data["Success"];
       });
-      this.success = true;
   }
-
-  ngOnInit() {
-  }
-
 }

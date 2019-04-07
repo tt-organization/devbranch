@@ -11,12 +11,13 @@ export class NewTruckComponent implements OnInit {
 
   newTruckForm: FormGroup;
   submitted = false;
-  success = false;
+  success: Boolean;
+  result: Object;
+  string: String = '';
 
   constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
     this.newTruckForm = this.formBuilder.group ({
       truckName: ['', Validators.required],
-      city: ['', Validators.required],
       sundayOpen: ['', Validators.required],
       sundayClose: ['', [Validators.required, Validators.maxLength(2)]],
       mondayOpen: ['', [Validators.required, Validators.maxLength(2)]],
@@ -43,23 +44,25 @@ export class NewTruckComponent implements OnInit {
      console.log(truck);
      var body = {
        "truckName": truck.truckName,
-       "city": truck.city,
-       "sundayOpen": truck.sundayOpen,
-       "sundayClose": truck.sundayClose,
-       "mondayOpen": truck.mondayOpen,
-       "mondayClose": truck.mondayClose,
-       "tuesdayOpen": truck.tuesdayOpen,
-       "tuesdayClose": truck.tuesdayClose,
-       "wednesdayOpen": truck.wednesdayOpen,
-       "wednesdayClose": truck.wednesdayClose,
-       "thursdayOpen": truck.thursdayOpen,
-       "thursdayClose": truck.thursdayClose,
-       "fridayOpen": truck.fridayOpen,
-       "fridayClose": truck.fridayClose,
-       "saturdayOpen": truck.saturdayOpen,
-       "saturdayClose": truck.saturdayClose,
+       "sundayOpen": truck.sundayOpen.value,
+       "sundayClose": truck.sundayClose.value,
+       "mondayOpen": truck.mondayOpen.value,
+       "mondayClose": truck.mondayClose.value,
+       "tuesdayOpen": truck.tuesdayOpen.value,
+       "tuesdayClose": truck.tuesdayClose.value,
+       "wednesdayOpen": truck.wednesdayOpen.value,
+       "wednesdayClose": truck.wednesdayClose.value,
+       "thursdayOpen": truck.thursdayOpen.value,
+       "thursdayClose": truck.thursdayClose.value,
+       "fridayOpen": truck.fridayOpen.value,
+       "fridayClose": truck.fridayClose.value,
+       "saturdayOpen": truck.saturdayOpen.value,
+       "saturdayClose": truck.saturdayClose.value,
      }
-     this.data.sendTruckData(body);
+     this.data.sendTruckData(body).subscribe(data => {
+      this.string = data['Message'];
+     });
+
      this.success = true;
    }
 
