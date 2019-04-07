@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TruckerDataService } from '../../data/trucker-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-truck',
@@ -15,7 +16,7 @@ export class NewTruckComponent implements OnInit {
   result: Object;
   string: String = '';
 
-  constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
+  constructor(private formBuilder: FormBuilder, private data: TruckerDataService, private router: Router) {
     this.newTruckForm = this.formBuilder.group ({
       truckName: ['', Validators.required],
       sundayOpen: ['', Validators.required],
@@ -61,6 +62,9 @@ export class NewTruckComponent implements OnInit {
      }
      this.data.sendTruckData(body).subscribe(data => {
       this.string = data['Message'];
+      if(data['Success']) {
+        this.router.navigate(['truck/:id'])
+      }
      });
 
      this.success = true;

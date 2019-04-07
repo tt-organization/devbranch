@@ -43,8 +43,9 @@
     <label>
       <div *ngIf="submitted && accountForm.controls.phone.errors" class="text-danger">
         <div *ngIf="accountForm.controls.phone.errors.required">Please enter a valid phone number</div>
+        <div *ngIf="accountForm.controls.phone.errors.pattern">Please match pattern 111-555-0123</div>
       </div>
-      <input type="text" formControlName="phone" class="form-control" placeholder="Password" placeholder="Phone Number">
+      <input type="text" formControlName="phone" class="form-control" placeholder="Phone Number">
     </label>
 
     <button class="btn btn-lg btn-primary btn-block" id="blue-button" type="submit">Create Account </button>
