@@ -2,7 +2,9 @@
 /*body {
     background: #eeeeee !important;
   } */
-
+.control-label {
+  text-align:left;
+}
   .wrapper {
     margin-top: 150px;
     margin-bottom: 80px;
