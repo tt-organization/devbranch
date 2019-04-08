@@ -14,12 +14,12 @@ export class TruckerDataService {
   }
 
   getTruckInfo(id) {
-    console.log( "id: " + id);
+    console.log( "(data) id: " + id['TruckID']);
     return this.http.post('/getTruckInfo.php', id);   
   }
 
-  login(user) {
-    return this.http.post('/login.php', user);
+  login(username: string, password: string) {
+    return this.http.post('/login.php', {username, password});
   }
 
   sendTruckData(truck) {

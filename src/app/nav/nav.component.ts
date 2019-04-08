@@ -20,12 +20,12 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() { 
-    console.log("truck: " + this.truck);
+    console.log("(nav) truck: " + this.truck);
   }
 
   public setTruck(truck: number) {
     this.truck = truck;    
-    console.log("setting truck: " + this.truck);
+    console.log("(nav) setting truck: " + this.truck);
   }
 
   getTruckId() {
@@ -33,7 +33,6 @@ export class NavComponent implements OnInit {
   }
 
   signedIn()  {
-    return true;
     return this.truck >= 0;
   }
 
