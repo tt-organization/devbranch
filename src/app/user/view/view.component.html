@@ -1,34 +1,40 @@
 <body>
   <article id="mapSpecifications">
-      <form action="">
-        <select name="distance">
+      <form class="refine" action="">
+        Refine Distance:
+        <select class="distance" name="distance">
           <option value="">Distance</option>
           <option value="5">5km</option>
           <option value="10">10km</option>
           <option value="15">15km</option>
         </select>
-        <select name="type">
-          <option value="">Filter</option>
-          <option value="veggie">Vegetarian</option>
-          <option value="meat">Meat</option>
-          <option value="dessert">Dessert</option>
-        </select>
-      <input type="submit" value="Submit">
+        <div class="type" >
+          Filter Results:
+          <input type="checkbox" id="veg" name="veg" value="veg">
+          <label for="veg">Vegetarian</label>
+          <input type="checkbox" id="meat" name="meat" value="meat">
+          <label for="meat">Meat</label>
+          <input type="checkbox" id="dessert" name="dessert" value="dessert">
+          <label for="dessert">Dessert</label>
+          <input type="checkbox" id="none" name="none" value="none" checked>
+          <label for="none">None</label>
+        </div>
     </form>
   </article>
-  <nav id="mapDisplay">Map goes here!</nav>
+  <nav id="mapDisplay">
+    <div class="theMap">
+        <app-map></app-map>
+    </div>
+  </nav>
   <div id="truckList">
-    <h1>
-      Results
-    </h1>
-    <div id="inner-grid">
-      <ul *ngIf="trucks">
-        <li *ngFor = "let truck of trucks.Trucks">
-          <h2>{{ truck.Truck_Name }}</h2>
-          <h3>{{ truck.Location }}</h3>
-          <h4> OPEN </h4>
-        </li>
-      </ul>
+    <div id="inner-grid" *ngIf="trucks">
+        <div class="eachTruck" *ngFor = "let truck of trucks.Trucks">
+          <div id="topLine" *ngIf = "isOpen(truck)">
+            <div id="name">{{ truck.Truck_Name }}</div>
+            <div id="open">OPEN TODAY</div>
+          </div>
+          <div id="location" *ngIf = "isOpen(truck)">{{ truck.Location }}</div>
+        </div>
     </div>
   </div>
 
