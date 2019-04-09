@@ -42,24 +42,25 @@ export class NewTruckComponent implements OnInit {
      if(this.newTruckForm.invalid) {
        return;
      }
-     console.log(truck);
+     //console.log(truck);
      var body = {
        "truckName": truck.truckName,
-       "sundayOpen": truck.sundayOpen.value,
-       "sundayClose": truck.sundayClose.value,
-       "mondayOpen": truck.mondayOpen.value,
-       "mondayClose": truck.mondayClose.value,
-       "tuesdayOpen": truck.tuesdayOpen.value,
-       "tuesdayClose": truck.tuesdayClose.value,
-       "wednesdayOpen": truck.wednesdayOpen.value,
-       "wednesdayClose": truck.wednesdayClose.value,
-       "thursdayOpen": truck.thursdayOpen.value,
-       "thursdayClose": truck.thursdayClose.value,
-       "fridayOpen": truck.fridayOpen.value,
-       "fridayClose": truck.fridayClose.value,
-       "saturdayOpen": truck.saturdayOpen.value,
-       "saturdayClose": truck.saturdayClose.value,
+       "sundayOpen": truck.sundayOpen,
+       "sundayClose": truck.sundayClose,
+       "mondayOpen": truck.mondayOpen,
+       "mondayClose": truck.mondayClose,
+       "tuesdayOpen": truck.tuesdayOpen,
+       "tuesdayClose": truck.tuesdayClose,
+       "wednesdayOpen": truck.wednesdayOpen,
+       "wednesdayClose": truck.wednesdayClose,
+       "thursdayOpen": truck.thursdayOpen,
+       "thursdayClose": truck.thursdayClose,
+       "fridayOpen": truck.fridayOpen,
+       "fridayClose": truck.fridayClose,
+       "saturdayOpen": truck.saturdayOpen,
+       "saturdayClose": truck.saturdayClose,
      }
+     console.log(body);
      this.data.sendTruckData(body).subscribe(data => {
       this.string = data['Message'];
       if(data['Success']) {

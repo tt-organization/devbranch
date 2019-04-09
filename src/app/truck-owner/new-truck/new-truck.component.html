@@ -3,13 +3,13 @@
       <h2 class="form-signin-heading">Create A New Truck</h2>
     <h5 *ngIf="success">{{ string }}</h5>
 
-    <div class="form-group">
-        <label for="truckName" class="control-label col-md-3">Company Name: </label>
-        <div class="col-md-9">
+    <div class="form-group row">
+        <div class="form-inline col-md-12">
+          <label for="truckName" class="control-label col-md-3">Company Name: </label>
           <div *ngIf="submitted && newTruckForm.controls.truckName.errors" class="error">
             <div *ngIf="newTruckForm.controls.truckName.errors.required">The name of your Food Truck is required</div>
           </div>
-          <input type="text" formControlName="truckName" class="form-control" autofocus="" placeholder="Food Truck Name">
+          <input type="text" formControlName="truckName" class="form-control col-md-9" autofocus="" placeholder="Food Truck Name">
         </div>
     </div>
 
@@ -261,7 +261,7 @@
           <div *ngIf="newTruckForm.controls.saturdayClose.errors.required">Please set your hours of operation</div>
         </div>
         <select formControlName="saturdayClose" class="form-control" placeholder="Saturday Close Time">
-            <option value="0" selected>Closed</option> <option value="1">01:00AM</option> <option value=2>02:00AM</option>
+            <option value=0 selected>Closed</option> <option value="1">01:00AM</option> <option value=2>02:00AM</option>
             <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
             <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
             <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
