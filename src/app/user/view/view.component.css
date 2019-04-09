@@ -18,6 +18,7 @@ body {
   #mapSpecifications {
     grid-area: article;
     text-align: left;
+    align-items: center;
   }
 
   #mapDisplay {
@@ -44,18 +45,22 @@ body {
   .eachTruck {
     padding: 1px 0px 1px 0px;
     text-align: left;
-    background-color: #fff7f0
+    background-color: #fff7f0;
+    vertical-align: top;
   }
 
   #name {
     color: #3366DD;
     font-size: 1.4em;
     float: left;
+    padding: 0px;
+
   }
 
   #open {
     float: right;
     text-align: right;
+    padding-top: 0px;
   }
 
   #location {
@@ -66,6 +71,7 @@ body {
 
   .refine {
     font-size: 1.1em;
+    align-items: center;
   }
 
   .refine .distance,
@@ -87,8 +93,6 @@ body {
   .theMap{
    background: transparent;
   }
-
-
 
 
 
