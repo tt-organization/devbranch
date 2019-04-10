@@ -12,7 +12,8 @@ import { AppComponent } from './app.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavComponent } from './nav/nav.component';
 import { AgmCoreModule } from '@agm/core';
-
+import {GoogleMapsAPIWrapper} from '@agm/core';
+import { MarkerManager } from '@agm/core';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -33,7 +34,7 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyCbquhLC8XjOT_-5V_5Wd-js_nT7n3YzKs'
     })
   ],
-  providers: [Truck, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [Truck, GoogleMapsAPIWrapper, MarkerManager, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

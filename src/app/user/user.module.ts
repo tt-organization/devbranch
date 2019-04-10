@@ -4,6 +4,8 @@ import { ViewComponent } from './view/view.component';
 import { MapComponent } from './map/map.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AgmCoreModule } from '@agm/core';
+import {GoogleMapsAPIWrapper} from '@agm/core';
+import { MarkerManager } from '@agm/core';
 
 
 @NgModule({
@@ -13,6 +15,7 @@ import { AgmCoreModule } from '@agm/core';
     AppRoutingModule,
     AgmCoreModule
   ],
-  exports: [MapComponent]
+  exports: [MapComponent],
+  providers: [MarkerManager, GoogleMapsAPIWrapper]
 })
 export class UserModule { }

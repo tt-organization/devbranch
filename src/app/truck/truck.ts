@@ -8,4 +8,6 @@ export class Truck {
     menu: Menu[];
     tags: String[];
     logo: ImageData;
+    latitude: Number;
+    longitude: Number;
 } 

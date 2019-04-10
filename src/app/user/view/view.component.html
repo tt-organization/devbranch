@@ -23,22 +23,23 @@
   </article>
   <nav id="mapDisplay">
     <div class="theMap">
-        <app-map></app-map>
+      <agm-map [latitude]="lat" [longitude]="long" [zoom]="zoom" *ngIf="trucks">
+        <agm-marker [latitude]="+truck.Latitude" [longitude]="+truck.Longitude" *ngFor="let truck of trucks.Trucks; let i=index" [iconUrl]="'https://mattgoodis.com/images/number_' + (i+1) + '.png'">
+          <agm-info-window> <strong> {{ truck.Truck_Name }} </strong> </agm-info-window>
+        </agm-marker>
+      </agm-map>
     </div>
   </nav>
   <div id="truckList">
     <div id="inner-grid" *ngIf="trucks">
-        <div class="eachTruck" *ngFor = "let truck of trucks.Trucks">
+        <div class="eachTruck" *ngFor = "let truck of trucks.Trucks; let i=index">
           <div id="topLine" *ngIf = "isOpen(truck)">
-            <div id="name">{{ truck.Truck_Name }}</div>
+            <div id="name">{{ i*1 + 1*1 }} {{ truck.Truck_Name }}</div>
             <div id="open">OPEN TODAY</div>
           </div>
           <div id="location" *ngIf = "isOpen(truck)">{{ truck.Location }}</div>
         </div>
     </div>
   </div>
-
 </body>
-
-
 
