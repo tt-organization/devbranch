@@ -23,4 +23,16 @@ export class MapComponent implements OnInit {
     });
   }
 
+  OnChooseLocation(event){
+    console.log(event);
+    if (confirm('Would you like to update your trucks location?')) {
+      // Save it!
+      this.lat = event.coords.lat;
+      this.long = event.coords.lng;
+      //call php script to update database
+    } else {
+      // Do nothing!
+    }
+  }
+
 }
