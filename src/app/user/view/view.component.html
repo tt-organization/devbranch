@@ -1,15 +1,45 @@
-<h1>
-    view works! it really really works
-  </h1>
-  <ul *ngIf="trucks">
-    <li *ngFor = "let truck of trucks.Trucks">
-      <p>{{ truck.Truck_Name }} {{ truck.Location }}</p>
-      <h2>Sunday:</h2> <p>{{ truck.Open_Sunday }} {{ truck.Close_Sunday }}</p>
-      <h2>Monday:</h2> <p>{{ truck.Open_Monday }} {{ truck.Close_Monday }}</p>
-      <h2>Tursday:</h2> <p>{{ truck.Open_Tuesday }} {{ truck.Close_Tuesday }}</p>
-      <h2>Wednesday:</h2> <p>{{ truck.Open_Wednesday }} {{ truck.Close_Wednesday }}</p>
-      <h2>Thursday:</h2> <p>{{ truck.Open_Thursday }} {{ truck.Close_Thursday }}</p>
-      <h2>Friday:</h2> <p>{{ truck.Open_Friday }} {{ truck.Close_Friday }}</p>
-      <h2>Saturday:</h2> <p>{{ truck.Open_Saturday }} {{ truck.Close_Saturday }}</p>
-    </li>
-  </ul>
+<body>
+  <article id="mapSpecifications">
+      <form class="refine" action="">
+        Refine Distance:
+        <select class="distance" name="distance">
+          <option value="">Distance</option>
+          <option value="5">5km</option>
+          <option value="10">10km</option>
+          <option value="15">15km</option>
+        </select>
+        <div class="type" >
+          Filter Results:
+          <input type="checkbox" id="veg" name="veg" value="veg">
+          <label for="veg">Vegetarian</label>
+          <input type="checkbox" id="meat" name="meat" value="meat">
+          <label for="meat">Meat</label>
+          <input type="checkbox" id="dessert" name="dessert" value="dessert">
+          <label for="dessert">Dessert</label>
+          <input type="checkbox" id="none" name="none" value="none" checked>
+          <label for="none">None</label>
+        </div>
+    </form>
+  </article>
+  <nav id="mapDisplay">
+    <div class="theMap">
+      <agm-map [latitude]="lat" [longitude]="long" [zoom]="zoom" *ngIf="trucks">
+        <agm-marker [latitude]="+truck.Latitude" [longitude]="+truck.Longitude" *ngFor="let truck of trucks.Trucks; let i=index" [iconUrl]="'https://mattgoodis.com/images/number_' + (i+1) + '.png'">
+          <agm-info-window> <strong> {{ truck.Truck_Name }} </strong> </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </nav>
+  <div id="truckList">
+    <div id="inner-grid" *ngIf="trucks">
+        <div class="eachTruck" *ngFor = "let truck of trucks.Trucks; let i=index">
+          <div id="topLine" *ngIf = "isOpen(truck)">
+            <div id="name">{{ i*1 + 1*1 }} {{ truck.Truck_Name }}</div>
+            <div id="open">OPEN TODAY</div>
+          </div>
+          <div id="location" *ngIf = "isOpen(truck)">{{ truck.Location }}</div>
+        </div>
+    </div>
+  </div>
+</body>
+
