@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavComponent } from './nav/nav.component';
 import { AgmCoreModule } from '@agm/core';
+import { PasswordValidatorDirective } from './data/password-validator.directive';
 import {GoogleMapsAPIWrapper} from '@agm/core';
 import { MarkerManager } from '@agm/core';
 
@@ -20,7 +21,8 @@ import { MarkerManager } from '@agm/core';
   declarations: [
     AppComponent,
     HomeScreenComponent,
-    NavComponent
+    NavComponent,
+    PasswordValidatorDirective
   ],
   imports: [
     BrowserModule,
