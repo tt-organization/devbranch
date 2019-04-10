@@ -15,6 +15,7 @@ export class NewTruckComponent implements OnInit {
   success: Boolean;
   result: Object;
   string: String = '';
+  id: Number;
 
   constructor(private formBuilder: FormBuilder, private data: TruckerDataService, private router: Router) {
     this.newTruckForm = this.formBuilder.group ({
@@ -64,7 +65,9 @@ export class NewTruckComponent implements OnInit {
      this.data.sendTruckData(body).subscribe(data => {
       this.string = data['Message'];
       if(data['Success']) {
-        this.router.navigate(['truck/:id'])
+        var id = data['Truck_ID'];
+        var truck = 'truck/:'.concat(id);
+        this.router.navigate([truck])
       }
      });
 
