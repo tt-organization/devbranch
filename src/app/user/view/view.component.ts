@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TruckDataService } from './../../truck-data.service';
+import { MapServiceService } from '../map/map-service.service';
+
+
 
 @Component({
   selector: 'app-view',
@@ -8,19 +11,26 @@ import { TruckDataService } from './../../truck-data.service';
 })
 export class ViewComponent implements OnInit {
 
-  trucks: object;
-  options: object;
+  lat : number;
+  long : number;
+  zoom = 13;
+  trucks: Object;
+  previous;
+  letter : String = 'A';
 
-  constructor(private data: TruckDataService) { }
+
+  constructor(private data: TruckDataService, private maps: MapServiceService) { }
 
   ngOnInit() {
     this.data.gettrucks().subscribe(data => {
       this.trucks = data;
       console.log(this.trucks);
     });
-
-
-
+    navigator.geolocation.getCurrentPosition(data => {
+      console.log(data);
+      this.lat = data.coords.latitude;
+      this.long = data.coords.longitude;
+    });
   }
 
   isOpen(truck: object){
@@ -54,6 +64,7 @@ export class ViewComponent implements OnInit {
     return bOpen;
   }
 
+
   filterResultsNone(veg, meat, dessert) {
     veg.checked = false;
     meat.checked = false;
@@ -64,6 +75,16 @@ export class ViewComponent implements OnInit {
     none.checked = false;
     return console.log("A check box was checked!");
   }
+  clickedMarker(infowindow) {
+    console.log("clicked");
+    if (this.previous) {
+        this.previous.close();
+    }
+    this.previous = infowindow;
+ }
 
+ ConvertToInt(val){
+  return parseInt(val);
+}
 
 }

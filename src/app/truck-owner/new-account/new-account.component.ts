@@ -1,6 +1,8 @@
+import { PasswordValidatorDirective, compareValidator } from './../../data/password-validator.directive';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TruckerDataService } from '../../data/trucker-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-account',
@@ -15,13 +17,16 @@ export class NewAccountComponent implements OnInit {
   result: Object;
   string: String = '';
 
-  constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
-    this.accountForm = this.formBuilder.group ({
+  constructor(private formBuilder: FormBuilder, private data: TruckerDataService, private router: Router) { }
+
+  ngOnInit() {
+    this.accountForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      phone: ['', Validators.required]
+      passCheck: ['', [Validators.required, compareValidator('password')]],
+      phone: ['', [Validators.required, Validators.pattern('^([0-9]{3}[\-]{1}[0-9]{3}[\-]{1}[0-9]{4})$')]]
     });
   }
 
@@ -32,21 +37,20 @@ export class NewAccountComponent implements OnInit {
       return;
     }
     console.log(user);
-    var body= {
+    var body = {
       "firstName": user.firstName,
       "lastName": user.lastName,
       "email": user.email,
       "password": user.password,
       "phone": user.phone
-      };
-      this.data.sendUserData(body).subscribe(data => {
+    };
+    this.data.sendUserData(body).subscribe(data => {
 
-        this.string = data["Message"];
-      });
-      this.success = true;
+      this.string = data["Message"];
+      this.success = data["Success"];
+      if (data['Success']) {
+        this.router.navigate(['newTruck']);
+      }
+    });
   }
-
-  ngOnInit() {
-  }
-
 }

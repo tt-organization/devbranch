@@ -1,3 +1,4 @@
+import { NewTruckComponent } from './truck-owner/new-truck/new-truck.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './truck-owner/login/login.component';
@@ -14,11 +15,12 @@ const routes: Routes = [
   { path: 'create', component: NewAccountComponent },
   { path: 'truck/:id', component: TruckDetailComponent },
   { path: 'view', component: ViewComponent },
+  { path: 'newTruck', component: NewTruckComponent}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], 
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

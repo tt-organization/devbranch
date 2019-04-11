@@ -31,10 +31,14 @@
       </form>
     </article>
     <nav id="mapDisplay">
-      <div class="theMap">
-          <app-map></app-map>
-      </div>
-    </nav>
+    <div class="theMap">
+      <agm-map [latitude]="lat" [longitude]="long" [zoom]="zoom" *ngIf="trucks">
+        <agm-marker [latitude]="+truck.Latitude" [longitude]="+truck.Longitude" *ngFor="let truck of trucks.Trucks; let i=index" [iconUrl]="'https://mattgoodis.com/images/number_' + (i+1) + '.png'">
+          <agm-info-window> <strong> {{ truck.Truck_Name }} </strong> </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </nav>
     <div id="truckList">
       <div id="inner-grid" *ngIf="trucks">
         <div class="surroundTrucks">
@@ -48,5 +52,5 @@
         </div>
       </div>
     </div>
+ </body>
 
-  </body>
