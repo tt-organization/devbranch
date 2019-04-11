@@ -1,4 +1,13 @@
 agm-map{
+    height: 100vh;
+    width: 1fr;
+}
+
+@media all and (max-width: 900px) {
+  agm-map {
     height: 500px;
     width: 500px;
-}   
+ }
+
+
+}

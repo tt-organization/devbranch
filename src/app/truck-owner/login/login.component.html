@@ -2,7 +2,7 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="form-signin">
     <h2 class="form-signin-heading">Login</h2>
     <label>
-      <input type="text" formControlName="username" class="form-control" placeholder="Email Address" autofocus="">
+      <input ng-focus='unSubmit()' type="text" formControlName="username" class="form-control" placeholder="Email Address" autofocus="">
       <div *ngIf="submitted && loginForm.controls.username.errors" class="error">
         <div *ngIf="loginForm.controls.username.errors.required">Please enter your username</div>
       </div>
@@ -14,6 +14,8 @@
         <div *ngIf="loginForm.controls.password.errors.required">Please enter your password</div>
       </div>
     </label>
+
+    <label *ngIf='submitted && !success'>{{ message }}</label>
 
     <!-- <label class="checkbox">    Is this still needed?
       <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
