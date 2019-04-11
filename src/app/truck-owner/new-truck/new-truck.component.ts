@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TruckerDataService } from '../../data/trucker-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-truck',
@@ -11,12 +12,14 @@ export class NewTruckComponent implements OnInit {
 
   newTruckForm: FormGroup;
   submitted = false;
-  success = false;
+  success: Boolean;
+  result: Object;
+  string: String = '';
+  id: Number;
 
-  constructor(private formBuilder: FormBuilder, private data: TruckerDataService) {
+  constructor(private formBuilder: FormBuilder, private data: TruckerDataService, private router: Router) {
     this.newTruckForm = this.formBuilder.group ({
       truckName: ['', Validators.required],
-      city: ['', Validators.required],
       sundayOpen: ['', Validators.required],
       sundayClose: ['', [Validators.required, Validators.maxLength(2)]],
       mondayOpen: ['', [Validators.required, Validators.maxLength(2)]],
@@ -40,10 +43,9 @@ export class NewTruckComponent implements OnInit {
      if(this.newTruckForm.invalid) {
        return;
      }
-     console.log(truck);
+     //console.log(truck);
      var body = {
        "truckName": truck.truckName,
-       "city": truck.city,
        "sundayOpen": truck.sundayOpen,
        "sundayClose": truck.sundayClose,
        "mondayOpen": truck.mondayOpen,
@@ -58,8 +60,19 @@ export class NewTruckComponent implements OnInit {
        "fridayClose": truck.fridayClose,
        "saturdayOpen": truck.saturdayOpen,
        "saturdayClose": truck.saturdayClose,
+       "userID": localStorage.getItem('userID')
      }
-     this.data.sendTruckData(body);
+     console.log(body);
+     this.data.sendTruckData(body).subscribe(data => {
+      console.log(data);
+      this.string = data['Message'];
+      if(data['Success']) {
+        var id = data['Truck_ID'];
+        var truck = 'truck/:'.concat(id);
+        this.router.navigate([truck])
+      }
+     });
+
      this.success = true;
    }
 

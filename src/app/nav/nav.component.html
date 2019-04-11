@@ -4,7 +4,7 @@
   </div>
 
   <div id='links'>
-      <button class='navLink' *ngIf='signedIn()' routerLink="/truck/{{ getTruckId() }}">View Profile</button>
-      <button class='navLink' *ngIf='signedIn()' (click)='signOut()' routerLink='/home'>Sign Out</button>
+      <button class='navLink' *ngIf='this.loggedIn()' routerLink="/truck/{{ getTruckId() }}">View Profile</button>
+      <button class='navLink' *ngIf='this.loggedIn()' (click)='this.signOut()'>Sign Out</button>
   </div>
 </div> 

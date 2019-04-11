@@ -12,14 +12,19 @@ import { AppComponent } from './app.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { NavComponent } from './nav/nav.component';
 import { AgmCoreModule } from '@agm/core';
-
+import { JwtModule } from '@auth0/angular-jwt';
+import { jwtTokenGetter } from './data/jwt.service';
+import { PasswordValidatorDirective } from './data/password-validator.directive';
+import {GoogleMapsAPIWrapper} from '@agm/core';
+import { MarkerManager } from '@agm/core';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     HomeScreenComponent,
-    NavComponent
+    NavComponent,
+    PasswordValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -31,9 +36,14 @@ import { AgmCoreModule } from '@agm/core';
     TruckModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCbquhLC8XjOT_-5V_5Wd-js_nT7n3YzKs'
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtTokenGetter
+      }
     })
   ],
-  providers: [Truck, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [Truck, GoogleMapsAPIWrapper, MarkerManager, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
