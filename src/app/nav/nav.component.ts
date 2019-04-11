@@ -1,4 +1,6 @@
 import { Component, OnInit, Optional } from '@angular/core';
+import { JwtService } from '../data/jwt.service';
+import { Router } from '@angular/router';
 //import { Truck } from '../truck/truck';
 
 @Component({
@@ -6,38 +8,24 @@ import { Component, OnInit, Optional } from '@angular/core';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
+
 export class NavComponent implements OnInit {
 
-  truck: number;
-  static instance: NavComponent;
-  constructor() { 
-    this.truck = -1;
-  }
+  constructor( private auth: JwtService,
+               private router: Router ) { }
+               
+  ngOnInit() { }
 
-  static getInstance() {
-    if (this.instance == null) return new NavComponent();
-    return this.instance;
-  }
-
-  ngOnInit() { 
-    console.log("(nav) truck: " + this.truck);
-  }
-
-  public setTruck(truck: number) {
-    this.truck = truck;    
-    console.log("(nav) setting truck: " + this.truck);
+  loggedIn() {
+    return this.auth.loggedIn();
   }
 
   getTruckId() {
-    return this.truck;
-  }
-
-  signedIn()  {
-    return this.truck >= 0;
+    return this.auth.getTruckId();
   }
 
   signOut() {
-    this.truck = -1;
+    this.auth.logout();
+    this.router.navigate(['home']);
   }
-
 }

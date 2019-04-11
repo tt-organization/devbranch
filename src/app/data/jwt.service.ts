@@ -1,40 +1,47 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { Truck } from '../truck/truck';
 
 @Injectable({
 providedIn: 'root'
 })
 
 export class JwtService {
-  private currentUserSubject: BehaviorSubject<Truck>;
-  public currentUser: Observable<Truck>;
+ 
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private httpClient: HttpClient) {    
-    this.currentUserSubject = new BehaviorSubject<Truck>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
+  loggedIn(): boolean{
+    return localStorage.getItem('access_token') !==  null;
   }
 
-  login(user: Object) {
-    return this.httpClient.post<{access_token: string}>
-      ('/login.php', user).pipe(tap(res => {
-        localStorage.setItem('access_token', res.access_token);
-        //localStorage.setItem('currentUser', JSON.stringify(res));
-        // this.currentUserSubject.next(res);
-      }))
+  checkToken(): boolean {
+    var localToken = localStorage.getItem('access_token');
+    var storedToken = null;
+    this.httpClient.post('/checkToken.php', {id: this.getTruckId()}).subscribe(res => {
+      storedToken = res['access_token']
+    });
+    return localToken === storedToken;
   }
 
-  register(truck: Object) {
-    return this.httpClient.post<{access_token: string}>
-      ('/sendTruck.php', truck).pipe(tap(res => {
-        //login here? have to extract user from truck
-      }))
+  getTruckId(): number{
+    return parseInt(localStorage.getItem('Truck_ID'));
+  }
+
+  generateToken(id: number) {
+    this.httpClient.get<{access_token: string}>
+        ('/getToken.php').subscribe(res => {
+          localStorage.setItem('access_token', res['access_token']);
+          this.setToken(id, res['access_token']).subscribe(res => {
+          });
+        });  
+  }
+
+  setToken(id: number, access_token: string) {
+    return this.httpClient.post('/storeToken.php', {Truck_ID: id, access_token: access_token});
   }
 
   logout() {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('Truck_ID');
   }
 }
 

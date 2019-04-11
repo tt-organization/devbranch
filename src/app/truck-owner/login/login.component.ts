@@ -15,17 +15,17 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   success = false;
-  message: String;
-  nav: NavComponent;
+  message: string;
+  truck_id: number;
 
-  constructor(private formBuilder: FormBuilder, 
-    private data: JwtService,
-    private router: Router) { 
-    this.loginForm = this.formBuilder.group ({
+  constructor(private formBuilder: FormBuilder,
+    private data: TruckerDataService,
+    private jwt: JwtService,
+    private router: Router) {
+    this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.nav = NavComponent.getInstance();
   }
 
   ngOnInit() {
@@ -41,13 +41,17 @@ export class LoginComponent implements OnInit {
 
     this.data.login(body).subscribe(data => {
       this.success = data['Success'];
-      this.nav.setTruck( data['Truck_ID'] );
+      this.truck_id = data['Truck_ID'];
       this.message = data['Message'];
 
-      if (this.success) {
-        this.router.navigate([ 'truck/' + this.nav.getTruckId() ]);
-      }
+      if (this.success) this.redirect();
     });
+  }
+
+  redirect() {
+    this.jwt.generateToken(this.truck_id);
+    localStorage.setItem('Truck_ID', this.truck_id.toString() );
+    this.router.navigate(['truck/' + this.jwt.getTruckId()]);
   }
 
   unSubmit() {

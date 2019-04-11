@@ -23,10 +23,13 @@ export class TruckDetailComponent implements OnInit {
     var request = {
       Truck_ID: this.id
     };
-    console.log( "detail... id: " + this.id );
-    this.data.getTruckInfo(request)
-      .subscribe(data => this.truck = data);
-      
-    console.log( this.truck['Truck'] );
+    console.log( "detail... id: " + this.id 
+                + " request: " + request 
+                + " request[Truck_ID] " + request['Truck_ID']);
+    this.data.getTruckInfo(this.id)
+      .subscribe(res => {       
+        this.truck = res;
+        console.log( res );  
+      });
   } 
 }
