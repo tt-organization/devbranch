@@ -15,7 +15,7 @@ export class TruckerDataService {
 
   getTruckInfo(id) {
     console.log( "id: " + id);
-    return this.http.post('/getTruckInfo.php', id);   
+    return this.http.post('/getTruckInfo.php', id);
   }
 
   login(user) {

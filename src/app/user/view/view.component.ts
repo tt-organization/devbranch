@@ -18,6 +18,7 @@ export class ViewComponent implements OnInit {
   previous;
   letter : String = 'A';
 
+
   constructor(private data: TruckDataService, private maps: MapServiceService) { }
 
   ngOnInit() {
@@ -63,6 +64,17 @@ export class ViewComponent implements OnInit {
     return bOpen;
   }
 
+
+  filterResultsNone(veg, meat, dessert) {
+    veg.checked = false;
+    meat.checked = false;
+    dessert.checked = false;
+  }
+
+  filter(none) {
+    none.checked = false;
+    return console.log("A check box was checked!");
+  }
   clickedMarker(infowindow) {
     console.log("clicked");
     if (this.previous) {
@@ -74,4 +86,5 @@ export class ViewComponent implements OnInit {
  ConvertToInt(val){
   return parseInt(val);
 }
+
 }
