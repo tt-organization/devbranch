@@ -60,9 +60,11 @@ export class NewTruckComponent implements OnInit {
        "fridayClose": truck.fridayClose,
        "saturdayOpen": truck.saturdayOpen,
        "saturdayClose": truck.saturdayClose,
+       "userID": localStorage.getItem('userID')
      }
      console.log(body);
      this.data.sendTruckData(body).subscribe(data => {
+      console.log(data);
       this.string = data['Message'];
       if(data['Success']) {
         var id = data['Truck_ID'];

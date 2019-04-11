@@ -17,6 +17,7 @@ export class NewAccountComponent implements OnInit {
   result: Object;
   string: String = '';
 
+
   constructor(private formBuilder: FormBuilder, private data: TruckerDataService, private router: Router) { }
 
   ngOnInit() {
@@ -45,10 +46,11 @@ export class NewAccountComponent implements OnInit {
       "phone": user.phone
     };
     this.data.sendUserData(body).subscribe(data => {
-
-      this.string = data["Message"];
-      this.success = data["Success"];
+      console.log(data);
+      this.string = data['Message'];
+      this.success = data['Success'];
       if (data['Success']) {
+        localStorage.setItem('userID', data['User_ID']);
         this.router.navigate(['newTruck']);
       }
     });
