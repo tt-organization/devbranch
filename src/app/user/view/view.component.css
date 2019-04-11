@@ -4,7 +4,7 @@ body {
     "nav article"
     "nav ads";
   grid-template-rows: 70px 1fr;
-  grid-template-columns: 1fr 50%;
+  grid-template-columns: 50% 50%;
   grid-row-gap: 3px;
   grid-column-gap: 3px;
   height: 100vh;
@@ -15,24 +15,143 @@ body {
     padding: 1.2em;
   }
 
+  /*---------------REFINE MAP/FILTER RESULTS-----------------*/
+
   #mapSpecifications {
     grid-area: article;
     text-align: left;
-    align-items: center;
   }
+
+  .refine {
+    font-size: 1.2em;
+    display: block;
+  }
+
+  .select-distance {
+    margin: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+
+  .select-distance select {
+   background-color: #ffffff;
+   font-size: .8em;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+}
+
+
+  .type {
+    padding-top: 0px;
+  }
+
+  .refine .type {
+    display: inline-block;
+    background: transparent
+  }
+
+  .refine .type input {
+    margin-right: 5px;
+    margin-left: 15px;
+  }
+
+
+
+  /* The container */
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  margin-top: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+  /* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*----------------------MAP THINGS------------------------*/
 
   #mapDisplay {
     grid-area: nav;
     background: transparent;
   }
 
+
+  .theMap{
+   background: transparent;
+  }
+
+
+/*------------------LIST OF TRUCKS--------------------*/
+
   #truckList {
     grid-area: ads;
+    padding: 0px 5px 2px 0px;
     text-align: left;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    padding: 0;
   }
 
   #inner-grid {
@@ -42,11 +161,21 @@ body {
     text-align: left;
   }
 
+  .surroundTrucks {
+     border-top: 1px solid #575656;
+     border-right: 1px solid #575656;
+     border-left: 1px solid #575656;
+     box-shadow: 5px 10px 18px #888888;
+     margin-right: 50px;
+     padding: 0px;
+  }
+
   .eachTruck {
-    padding: 1px 0px 1px 0px;
+    padding: 0px 0px 10px 0px;
     text-align: left;
-    background-color: #fff7f0;
+    background-color: #f9f4f0;
     vertical-align: top;
+    border-bottom: 1px solid #575656;
   }
 
   #name {
@@ -54,7 +183,6 @@ body {
     font-size: 1.4em;
     float: left;
     padding: 0px;
-
   }
 
   #open {
@@ -64,40 +192,16 @@ body {
   }
 
   #location {
-      clear: both;
-      height: 0px;
-      overflow: hidden;
+    clear: both;
+    height: 0px;
+    overflow: hidden;
   }
 
-  .refine {
-    font-size: 1.1em;
-    align-items: center;
-  }
-
-  .refine .distance,
-  .refine .type {
-    padding: 0px 10px 0px 10px;
-  }
-
-  .refine .type {
-    display: inline-block;
-    background: transparent;
-    padding: 0px 10px 0px 20px;
-  }
-
-  .refine .type input {
-    margin-right: 5px;
-    margin-left: 15px;
-  }
-
-  .theMap{
-   background: transparent;
-  }
 
 
 
 /* Stack the layout on small devices/viewports. */
-@media all and (max-width: 900px) {
+@media all and (max-width: 1300px) {
   body {
     grid-template-areas:
       "nav"
@@ -107,9 +211,29 @@ body {
     grid-template-columns: 1fr;
  }
 
- .refine .distance,
-  .refine .type {
-    padding: 0px;;
+
+  #truckList {
+    margin-top: 10px;
+
+  }
+
+
+}
+
+@media all and (max-width: 600px) {
+  body {
+    grid-template-areas:
+      "nav"
+      "article"
+      "ads";
+    grid-template-rows: 600px 70px 1fr;
+    grid-template-columns: 1fr;
+ }
+
+
+  #truckList {
+    margin-top: 40px;
+
   }
 
 

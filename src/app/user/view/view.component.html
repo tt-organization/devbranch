@@ -1,44 +1,52 @@
 <body>
-  <article id="mapSpecifications">
-      <form class="refine" action="">
-        Refine Distance:
-        <select class="distance" name="distance">
-          <option value="">Distance</option>
-          <option value="5">5km</option>
-          <option value="10">10km</option>
-          <option value="15">15km</option>
-        </select>
-        <div class="type" >
-          Filter Results:
-          <input type="checkbox" id="veg" name="veg" value="veg">
-          <label for="veg">Vegetarian</label>
-          <input type="checkbox" id="meat" name="meat" value="meat">
-          <label for="meat">Meat</label>
-          <input type="checkbox" id="dessert" name="dessert" value="dessert">
-          <label for="dessert">Dessert</label>
-          <input type="checkbox" id="none" name="none" value="none" checked>
-          <label for="none">None</label>
-        </div>
-    </form>
-  </article>
-  <nav id="mapDisplay">
-    <div class="theMap">
-        <app-map></app-map>
-    </div>
-  </nav>
-  <div id="truckList">
-    <div id="inner-grid" *ngIf="trucks">
-        <div class="eachTruck" *ngFor = "let truck of trucks.Trucks">
-          <div id="topLine" *ngIf = "isOpen(truck)">
-            <div id="name">{{ truck.Truck_Name }}</div>
-            <div id="open">OPEN TODAY</div>
+    <article id="mapSpecifications">
+        <form class="refine" action="">
+          <div class="select-distance">
+              <select class="distance" id="moreDist" name="distance">
+                <option value="">Refine Distance</option>
+                <option value="5">5km</option>
+                <option value="10">10km</option>
+                <option value="15">15km</option>
+              </select>
           </div>
-          <div id="location" *ngIf = "isOpen(truck)">{{ truck.Location }}</div>
+          <div class="type" >
+            Filter Results:
+            <label class="container">None
+              <input type="checkbox" checked="checked" id="none" (click)="filterResultsNone(veg, meat, dessert)" #none>
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Vegetarian
+              <input type="checkbox" id="veg" name="veg" value="veg" (click)="filter(none)" #veg>
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Meat
+              <input type="checkbox" id="meat" name="meat" value="meat" (click)="filter(none)" #meat>
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Dessert
+              <input type="checkbox" id="dessert" name="dessert" value="dessert" (click)="filter(none)" #dessert>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+      </form>
+    </article>
+    <nav id="mapDisplay">
+      <div class="theMap">
+          <app-map></app-map>
+      </div>
+    </nav>
+    <div id="truckList">
+      <div id="inner-grid" *ngIf="trucks">
+        <div class="surroundTrucks">
+          <div class="eachTruck" *ngFor = "let truck of trucks.Trucks">
+            <div id="topLine" *ngIf = "isOpen(truck)">
+              <div id="name">{{ truck.Truck_Name }}</div>
+              <div id="open">OPEN TODAY</div>
+            </div>
+            <div id="location" *ngIf = "isOpen(truck)">{{ truck.Location }}</div>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
 
-</body>
-
-
-
+  </body>

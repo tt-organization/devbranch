@@ -9,6 +9,7 @@ import { TruckDataService } from './../../truck-data.service';
 export class ViewComponent implements OnInit {
 
   trucks: object;
+  options: object;
 
   constructor(private data: TruckDataService) { }
 
@@ -17,6 +18,7 @@ export class ViewComponent implements OnInit {
       this.trucks = data;
       console.log(this.trucks);
     });
+
 
 
   }
@@ -51,5 +53,17 @@ export class ViewComponent implements OnInit {
     }
     return bOpen;
   }
+
+  filterResultsNone(veg, meat, dessert) {
+    veg.checked = false;
+    meat.checked = false;
+    dessert.checked = false;
+  }
+
+  filter(none) {
+    none.checked = false;
+    return console.log("A check box was checked!");
+  }
+
 
 }
