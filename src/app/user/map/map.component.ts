@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MapServiceService } from './map-service.service';
 
 @Component({
@@ -8,27 +8,39 @@ import { MapServiceService } from './map-service.service';
 })
 export class MapComponent implements OnInit {
 
-  lat : number;
-  long : number;
+    private _lat : number;
+    private _long: number;
 
-  Location : Object;
+  Location: Object;
 
   constructor(private map: MapServiceService) { }
 
-  ngOnInit() {
-    navigator.geolocation.getCurrentPosition(data => {
-      console.log(data);
-      this.lat = data.coords.latitude;
-      this.long = data.coords.longitude;
-    });
+  @Input()
+  set lat(lat: number) {
+    this._lat = (lat);
+  }
+  
+  @Input()
+  set long(long: number) {
+    this._long = (long);
   }
 
-  OnChooseLocation(event){
+  get lat() {
+    return this._lat;
+  } 
+
+  get long() {
+    return this._long;
+  }
+
+  ngOnInit() {}
+
+  OnChooseLocation(event) {
     console.log(event);
     if (confirm('Would you like to update your trucks location?')) {
       // Save it!
       this.lat = event.coords.lat;
-      this.long = event.coords.lng;
+     // this.long = event.coords.lng;
       //call php script to update database
     } else {
       // Do nothing!
