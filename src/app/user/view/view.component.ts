@@ -69,6 +69,10 @@ export class ViewComponent implements OnInit {
     veg.checked = false;
     meat.checked = false;
     dessert.checked = false;
+
+
+
+
   }
 
   filter(none) {

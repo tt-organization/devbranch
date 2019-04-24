@@ -10,7 +10,7 @@ body {
     "nav ads";
   grid-template-rows: 70px 1fr;
   grid-template-columns: 50% 50%;
-  grid-row-gap: 3px;
+  grid-row-gap: 5px;
   grid-column-gap: 3px;
   height: 100vh;
   margin: 0;
