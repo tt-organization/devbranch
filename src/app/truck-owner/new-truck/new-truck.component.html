@@ -1,284 +1,552 @@
 <div class="wrapper">
-    <form [formGroup]="newTruckForm" (ngSubmit)="createTruck(newTruckForm.value)" class="form-signin form-horizontal">
-        <h2 class="form-signin-heading">Create A New Truck</h2>
-      <h5 *ngIf="success">{{ string }}</h5>
+  <form [formGroup]="newTruckForm" (ngSubmit)="createTruck(newTruckForm.value)" class="form-signin form-horizontal">
+    <h2 class="form-signin-heading">Create A New Truck</h2>
+    <h5 *ngIf="success">{{ string }}</h5>
 
 
 
-      <div class="form-group row">
-          <div class="form-inline">
-            <label for="truckName" class="control-label">Company Name: </label>
-              <div *ngIf="submitted && newTruckForm.controls.truckName.errors" class="error">
-                <div *ngIf="newTruckForm.controls.truckName.errors.required">The name of your Food Truck is required</div>
-              </div>
-            <input type="text" formControlName="truckName" class="form-control col-md-9" autofocus="" placeholder="Food Truck Name">
-          </div>
+    <div class="form-group row">
+      <div class="form-inline">
+        <label for="truckName" class="control-label">Company Name: </label>
+        <div *ngIf="submitted && newTruckForm.controls.truckName.errors" class="error">
+          <div *ngIf="newTruckForm.controls.truckName.errors.required">The name of your Food Truck is required</div>
+        </div>
+        <input type="text" formControlName="truckName" class="form-control col-md-9" autofocus=""
+          placeholder="Food Truck Name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="sundayOpen" class="control-label col-md-3">Sunday Open: </label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.sundayOpen.errors" class="error">
+          <div *ngIf="newTruckForm.controls.sundayOpen.errors.required">Please set your hours of operation</div>
+        </div>
+        <select formControlName="sundayOpen" class="form-control" placeholder="Open">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
+      </div>
+      <label for="sundayClose" class="control-label col-md-2">Close: </label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.sundayClose.errors" class="error">
+          <div *ngIf="newTruckForm.controls.sundayClose.errors.required">Please set your hours of operation</div>
+        </div>
+        <select formControlName="sundayClose" class="form-control" placeholder="Close">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mondayOpen" class="control-label col-md-3">Monday Open: </label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.mondayOpen.errors" class="error">
+          <div *ngIf="newTruckForm.controls.mondayOpen.errors.required">Please set your hours of operation</div>
+        </div>
+        <select formControlName="mondayOpen" class="form-control" placeholder="Monday Open Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
 
-
-      <div class="form-group">
-          <label for="sundayOpen" class="control-label col-md-3">Sunday Open: </label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.sundayOpen.errors" class="error">
-            <div *ngIf="newTruckForm.controls.sundayOpen.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="sundayOpen" class="form-control" placeholder="Open">
-              <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-              <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-            <option value=24>12:00PM</option>
-          </select>
+      <label for="mondayClose" class="control-label col-md-2">Close:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.mondayClose.errors" class="error">
+          <div *ngIf="newTruckForm.controls.mondayClose.errors.required">Please set your hours of operation</div>
         </div>
-          <label for="sundayClose"class="control-label col-md-2">Close: </label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.sundayClose.errors" class="error">
-            <div *ngIf="newTruckForm.controls.sundayClose.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="sundayClose" class="form-control" placeholder="Close">
-              <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-              <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
-          </div>
+        <select formControlName="mondayClose" class="form-control" placeholder="Monday Close Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tuesdayOpen" class="control-label col-md-3">Tuesday Open:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.tuesdayOpen.errors" class="error">
+          <div *ngIf="newTruckForm.controls.tuesdayOpen.errors.required">Please set your hours of operation</div>
+        </div>
+        <select formControlName="tuesdayOpen" class="form-control" placeholder="Tuesday Open Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
 
-      <div class="form-group">
-          <label for="mondayOpen" class="control-label col-md-3">Monday Open: </label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.mondayOpen.errors" class="error">
-            <div *ngIf="newTruckForm.controls.mondayOpen.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="mondayOpen" class="form-control" placeholder="Monday Open Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
+      <label for="tuesdayClose" class="control-label col-md-2">Close:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.tuesdayClose.errors" class="error">
+          <div *ngIf="newTruckForm.controls.tuesdayClose.errors.required">Please set your hours of operation</div>
         </div>
-
-          <label for="mondayClose" class="control-label col-md-2">Close:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.mondayClose.errors" class="error">
-            <div *ngIf="newTruckForm.controls.mondayClose.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="mondayClose" class="form-control" placeholder="Monday Close Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
-          </div>
+        <select formControlName="tuesdayClose" class="form-control" placeholder="Tuesday Close Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
+    </div>
 
-      <div class="form-group">
-          <label for="tuesdayOpen" class="control-label col-md-3">Tuesday Open:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.tuesdayOpen.errors" class="error">
-            <div *ngIf="newTruckForm.controls.tuesdayOpen.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="tuesdayOpen" class="form-control" placeholder="Tuesday Open Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
+    <div class="form-group">
+      <label for="wednesdayOpen" class="control-label col-md-3">Wednesday Open:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.wednesdayOpen.errors" class="error">
+          <div *ngIf="newTruckForm.controls.wednesdayOpen.errors.required">Please set your hours of operation</div>
         </div>
-
-          <label for="tuesdayClose" class="control-label col-md-2">Close:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.tuesdayClose.errors" class="error">
-            <div *ngIf="newTruckForm.controls.tuesdayClose.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="tuesdayClose" class="form-control" placeholder="Tuesday Close Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
-        </div>
+        <select formControlName="wednesdayOpen" class="form-control" placeholder="Wednesday Open Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
-
-      <div class="form-group">
-          <label for="wednesdayOpen" class="control-label col-md-3">Wednesday Open:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.wednesdayOpen.errors" class="error">
-            <div *ngIf="newTruckForm.controls.wednesdayOpen.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="wednesdayOpen" class="form-control" placeholder="Wednesday Open Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
+      <label for="wednesdayClose" class="control-label col-md-2">Close:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.wednesdayClose.errors" class="error">
+          <div *ngIf="newTruckForm.controls.wednesdayClose.errors.required">Please set your hours of operation</div>
         </div>
-          <label for="wednesdayClose" class="control-label col-md-2">Close:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.wednesdayClose.errors" class="error">
-            <div *ngIf="newTruckForm.controls.wednesdayClose.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="wednesdayClose" class="form-control" placeholder="Wednesday Close Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
-        </div>
+        <select formControlName="wednesdayClose" class="form-control" placeholder="Wednesday Close Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
+    </div>
 
-      <div class="form-group">
-          <label for="thursdayOpen" class="control-label col-md-3">Thursday Open:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.thursdayOpen.errors" class="error">
-            <div *ngIf="newTruckForm.controls.thursdayOpen.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="thursdayOpen" class="form-control" placeholder="Thursday Open Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
+    <div class="form-group">
+      <label for="thursdayOpen" class="control-label col-md-3">Thursday Open:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.thursdayOpen.errors" class="error">
+          <div *ngIf="newTruckForm.controls.thursdayOpen.errors.required">Please set your hours of operation</div>
         </div>
-          <label for="thursdayClose" class="control-label col-md-2">Close:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.thursdayClose.errors" class="error">
-            <div *ngIf="newTruckForm.controls.thursdayClose.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="thursdayClose" class="form-control" placeholder="Thursday Close Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
-        </div>
+        <select formControlName="thursdayOpen" class="form-control" placeholder="Thursday Open Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
+      <label for="thursdayClose" class="control-label col-md-2">Close:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.thursdayClose.errors" class="error">
+          <div *ngIf="newTruckForm.controls.thursdayClose.errors.required">Please set your hours of operation</div>
+        </div>
+        <select formControlName="thursdayClose" class="form-control" placeholder="Thursday Close Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
+      </div>
+    </div>
 
-      <div class="form-group">
-          <label for="fridayOpen" class="control-label col-md-3">Friday Open:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.fridayOpen.errors" class="error">
-            <div *ngIf="newTruckForm.controls.fridayOpen.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="fridayOpen" class="form-control" placeholder="Friday Open Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
+    <div class="form-group">
+      <label for="fridayOpen" class="control-label col-md-3">Friday Open:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.fridayOpen.errors" class="error">
+          <div *ngIf="newTruckForm.controls.fridayOpen.errors.required">Please set your hours of operation</div>
         </div>
-          <label for="fridayClose" class="control-label col-md-2">Close:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.fridayClose.errors" class="error">
-            <div *ngIf="newTruckForm.controls.fridayClose.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="fridayClose" class="form-control" placeholder="Friday Close Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
-        </div>
+        <select formControlName="fridayOpen" class="form-control" placeholder="Friday Open Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
+      <label for="fridayClose" class="control-label col-md-2">Close:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.fridayClose.errors" class="error">
+          <div *ngIf="newTruckForm.controls.fridayClose.errors.required">Please set your hours of operation</div>
+        </div>
+        <select formControlName="fridayClose" class="form-control" placeholder="Friday Close Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
+      </div>
+    </div>
 
-      <div class="form-group">
-          <label for="saturdayOpen" class="control-label col-md-3">Saturday Open:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.saturdayOpen.errors" class="error">
-            <div *ngIf="newTruckForm.controls.saturdayOpen.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="saturdayOpen" class="form-control" placeholder="Saturday Open Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
+    <div class="form-group">
+      <label for="saturdayOpen" class="control-label col-md-3">Saturday Open:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.saturdayOpen.errors" class="error">
+          <div *ngIf="newTruckForm.controls.saturdayOpen.errors.required">Please set your hours of operation</div>
         </div>
-          <label for="saturdayClose" class="control-label col-md-2">Close:</label>
-          <div class="col-md-3">
-          <div *ngIf="submitted && newTruckForm.controls.saturdayClose.errors" class="error">
-            <div *ngIf="newTruckForm.controls.saturdayClose.errors.required">Please set your hours of operation</div>
-          </div>
-          <select formControlName="saturdayClose" class="form-control" placeholder="Saturday Close Time">
-            <option value=0 selected>Closed</option> <option value=1>01:00AM</option> <option value=2>02:00AM</option>
-            <option value=3>03:00AM</option> <option value=4>04:00AM</option> <option value=5>05:00AM</option>
-              <option value=6>06:00AM</option> <option value=7>07:00AM</option> <option value=8>08:00AM</option>
-              <option value=9>09:00AM</option> <option value=10>10:00AM</option> <option value=11>11:00AM</option>
-              <option value=12>12:00AM</option> <option value=13>01:00PM</option> <option value=14>02:00PM</option>
-              <option value=15>03:00PM</option> <option value=16>04:00PM</option> <option value=17>05:00PM</option>
-              <option value=18>06:00PM</option> <option value=19>07:00PM</option> <option value=20>08:00PM</option>
-              <option value=21>09:00PM</option> <option value=22>10:00PM</option> <option value=23>11:00PM</option>
-              <option value=24>12:00PM</option>
-            </select>
-        </div>
+        <select formControlName="saturdayOpen" class="form-control" placeholder="Saturday Open Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
       </div>
+      <label for="saturdayClose" class="control-label col-md-2">Close:</label>
+      <div class="col-md-3">
+        <div *ngIf="submitted && newTruckForm.controls.saturdayClose.errors" class="error">
+          <div *ngIf="newTruckForm.controls.saturdayClose.errors.required">Please set your hours of operation</div>
+        </div>
+        <select formControlName="saturdayClose" class="form-control" placeholder="Saturday Close Time">
+          <option value=0 selected>Closed</option>
+          <option value=1>01:00AM</option>
+          <option value=2>02:00AM</option>
+          <option value=3>03:00AM</option>
+          <option value=4>04:00AM</option>
+          <option value=5>05:00AM</option>
+          <option value=6>06:00AM</option>
+          <option value=7>07:00AM</option>
+          <option value=8>08:00AM</option>
+          <option value=9>09:00AM</option>
+          <option value=10>10:00AM</option>
+          <option value=11>11:00AM</option>
+          <option value=12>12:00AM</option>
+          <option value=13>01:00PM</option>
+          <option value=14>02:00PM</option>
+          <option value=15>03:00PM</option>
+          <option value=16>04:00PM</option>
+          <option value=17>05:00PM</option>
+          <option value=18>06:00PM</option>
+          <option value=19>07:00PM</option>
+          <option value=20>08:00PM</option>
+          <option value=21>09:00PM</option>
+          <option value=22>10:00PM</option>
+          <option value=23>11:00PM</option>
+          <option value=24>12:00PM</option>
+        </select>
+      </div>
+    </div>
     <div class="row">
       <button class="btn btn-lg btn-primary btn-block col-md-10" id="blue-button" type="submit">Create Account </button>
     </div>
 
-    </form>
-  </div>
+  </form>
+</div>
+
+<!-- <div class="form-group">
+      <div class="col-md-3">
+        <label for="sundayOpen" class="control-label col-md-3">Sunday Open: </label>
+        <input type='time' id="sundayOpen" name="sundayOpen">
+        <label for="sundayClose" class="control-label col-md-3">Close: </label>
+        <input type='time' id="sundayClose" name="sundayClose">
+      </div>
+      <div class="col-md-3">
+        <label for="mondayOpen" class="control-label col-md-3">Monday Open: </label>
+        <input type='time' id="mondayOpen" name="mondayOpen">
+        <label for="mondayClose" class="control-label col-md-3">Close: </label>
+        <input type='time' id="mondayClose" name="mondayClose">
+      </div>
+      <div class="col-md-3">
+        <label for="tuesdayOpen" class="control-label col-md-3">Tuesday Open: </label>
+        <input type='time' id="tuesdayOpen" name="tuesdayOpen">
+        <label for="tuesdayClose" class="control-label col-md-3">Close: </label>
+        <input type='time' id="tuesdayClose" name="tuesdayClose">
+      </div>
+      <div class="col-md-3">
+        <label for="wednesdayOpen" class="control-label col-md-3">Wednesday Open: </label>
+        <input type='time' id="wednesdayOpen" name="wednesdayOpen">
+        <label for="wednesdayClose" class="control-label col-md-3">Close: </label>
+        <input type='time' id="wednesdayClose" name="wednesdayClose">
+      </div>
+      <div class="col-md-3">
+        <label for="thursdayOpen" class="control-label col-md-3">Thursday Open: </label>
+        <input type='time' id="thursdayOpen" name="thursdayOpen">
+        <label for="thursdayClose" class="control-label col-md-3">Close: </label>
+        <input type='time' id="thursdayClose" name="thursdayClose">
+      </div>
+      <div class="col-md-3">
+        <label for="fridayOpen" class="control-label col-md-3">Friday Open: </label>
+        <input type='time' id="fridayOpen" name="fridayOpen">
+        <label for="fridayClose" class="control-label col-md-3">Close: </label>
+        <input type='time' id="fridayClose" name="fridayClose">
+      </div>
+      <div class="col-md-3">
+        <label for="saturdayOpen" class="control-label col-md-3">Saturday Open: </label>
+        <input type='time' id="saturdayOpen" name="saturdayOpen">
+        <label for="saturdayClose" class="control-label col-md-3">Close: </label>
+        <input type='time' id="saturdayClose" name="saturdayClose">
+      </div> -->
