@@ -1,6 +1,55 @@
-<!-- <div>
-  <h3>{{ menu.name }}</h3>
-  <div ngfor='let mi of menu.items'>
-    <p class='menuItem'>{{ mi.name | uppercase }} - {{ mi.price | currency }}</p>
+<div id="menuList">
+  <div class="title">{{ name }} Menu</div>
+  <div *ngIf="!jwt.loggedIn(); else edit">
+    <div id="inner-grid" *ngIf="menu">
+      <div class="eachItem" *ngFor="let item of menu">
+        <div id="categoryTitle">{{ item["Category_Desc"] }}</div>
+        <div id="item">
+          Description: {{ item["Description"] }} Price: {{ item["Price"] }}
+        </div>
+      </div>
+    </div>
   </div>
-</div> -->
+  <ng-template #edit>
+      <div id="inner-grid" *ngIf="menu">
+        <div class="eachItem" *ngFor="let item of menu">
+          <div id="categoryTitle">{{ item["Category_Desc"] }}</div>
+          <div id="itemd">
+            Description: {{ item["Description"] }} Price: {{ item["Price"] }}
+            <button (click)="removeItem(item)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper">
+        <form [formGroup]="addItemForm" (ngSubmit)="addItems(addItemForm.value)" class="form-signin form-horizontal">
+          <div class="form-group row">
+            <div class="form-inline">
+              <label for="category" class="control-label">Food Category: </label>
+              <div *ngIf="submitted && addItemForm.controls.category.errors" class="error">
+                <div *ngIf="addItemForm.controls.category.errors.required">Please enter a cateory for your item. Ex Main, Side, Drink</div>
+              </div>
+              <input type="text" formControlName="category" class="form-control" autofocus="" placeholer="Food Category">
+            </div>
+
+            <div class="form-inline">
+              <label for="description" class="control-label">Name: </label>
+              <div *ngIf="submitted && addItemForm.controls.description.errors" class="error">
+                  <div *ngIf="addItemForm.controls.description.errors.required">Please enter a name for the item.</div>
+            </div>
+            <input type="text" formControlName="description" class="form-control" placeholder="Your Food">
+          </div>
+
+          <div class="form-inline">
+              <label for="price" class="control-label">Price: $</label>
+              <div *ngIf="submitted && addItemForm.controls.price.errors" class="error">
+                  <div *ngIf="addItemForm.controls.price.errors.required">Please enter the name of the food you wish to add.</div>
+            </div>
+            <input type="number" step="any" formControlName="price" class="form-control" placeholder="0.00">
+          </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" id="blue-button" type="submit">Add Item</button>
+
+        </form>
+      </div>
+  </ng-template>
+</div>
