@@ -32,4 +32,8 @@ export class TruckerDataService {
   addItem(item) {
     return this.http.post('/sendMenuItem.php', item);
   }
+
+  sendLocation(item){
+    return this.http.post('/sendLocation.php', item);
+  }
 }
