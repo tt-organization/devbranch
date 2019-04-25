@@ -25,8 +25,8 @@
     <nav id="mapDisplay">
     <div class="theMap">
       <agm-map [latitude]="lat" [longitude]="long" [zoom]="zoom" *ngIf="trucks">
-        <agm-marker [latitude]="+truck.Latitude" [longitude]="+truck.Longitude" *ngFor="let truck of truckList; let i=index" [iconUrl]="'https://mattgoodis.com/images/number_' + (i+1) + '.png'">
-          <agm-info-window> <strong> {{ truck.Truck_Name }} </strong> </agm-info-window>
+        <agm-marker [latitude]="+truck.Latitude" [longitude]="+truck.Longitude" *ngFor="let truck of trucks.Trucks; let i=index" [iconUrl]="'https://mattgoodis.com/images/number_' + (i+1) + '.png'">
+          <agm-info-window> <strong routerLink="/truck/{{ truck['Truck_ID'] }}"> {{ truck.Truck_Name }} </strong> </agm-info-window>
         </agm-marker>
       </agm-map>
     </div>
@@ -34,8 +34,8 @@
     <div id="truckList">
       <div id="inner-grid" *ngIf="trucks">
         <div class="surroundTrucks">
-          <div class="eachTruck" *ngFor = "let truck of truckList" type=[truck]>
-            <div id="topLine">
+          <div class="eachTruck" *ngFor = "let truck of trucks.Trucks" routerLink="/truck/{{ truck['Truck_ID'] }}">
+            <div id="topLine" *ngIf = "isOpen(truck)">
               <div id="name">{{ truck.Truck_Name }}</div>
               <div id="open">OPEN TODAY</div>
             </div>
