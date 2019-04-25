@@ -14,7 +14,7 @@ export class TruckerDataService {
   }
 
   getTruckInfo(id: number) {
-    return this.http.post('/getTruckInfo.php', {Truck_ID: id} );   
+    return this.http.post('/getTruckInfo.php', {Truck_ID: id} );
   }
 
   login(user: Object) {
@@ -23,5 +23,13 @@ export class TruckerDataService {
 
   sendTruckData(truck) {
     return this.http.post('/sendTruck.php', truck);
+  }
+
+  removeItem(item) {
+    return this.http.post('/removeItem.php', item);
+  }
+
+  addItem(item) {
+    return this.http.post('/sendMenuItem.php', item);
   }
 }

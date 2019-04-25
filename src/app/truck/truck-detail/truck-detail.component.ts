@@ -12,7 +12,7 @@ export class TruckDetailComponent implements OnInit {
 
   truck: Truck;
   truckLoaded: Promise<boolean>;
-
+  
   constructor(private data: TruckerDataService,
     private route: ActivatedRoute) { }
 

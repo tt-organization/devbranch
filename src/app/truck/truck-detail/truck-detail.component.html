@@ -1,5 +1,6 @@
 <div class='container'>
   <button class='backButton' routerLink="/user">Truck List</button>
+
   <div class='map'>
     <app-map *ngIf='truckLoaded | async' [lat]='getLatitude()' [long]='getLongitude()'></app-map>
   </div>
@@ -26,4 +27,5 @@
   <div class='menu'>
     <app-menu></app-menu>
   </div>
+</div>
 </div>
