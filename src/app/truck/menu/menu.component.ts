@@ -38,7 +38,12 @@ export class MenuComponent implements OnInit {
     this.data.getTruckInfo(this.id).subscribe(data => {
       console.log(this.data);
       this.name = data['Truck'][0].Truck_Name;
-      this.menu = data['Menu'];
+      if(data['Menu']) {
+        this.menu = data['Menu'];
+      }
+        else {
+        this.menu = [];
+        }
       this.currCat = this.menu[0]['Category_Desc'];
       console.log(this.currCat);
     })
