@@ -5,6 +5,7 @@ import { TruckDetailComponent } from './truck-detail/truck-detail.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserModule } from '../user/user.module';
 import { TruckComponent } from './truck.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { TruckComponent } from './truck.component';
   imports: [
     CommonModule,
     UserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ]
 })
 export class TruckModule { }

@@ -6,31 +6,34 @@ providedIn: 'root'
 })
 
 export class JwtService {
+
+  private login = false;
  
   constructor(private httpClient: HttpClient) { }
 
-  loggedIn(): boolean{
-    return localStorage.getItem('access_token') !==  null;
+  loggedIn() {
+   if ( this.login ) return true;
+    if ( !this.login && localStorage.getItem('access_token') !== null) {
+      this.httpClient.post('/checkToken.php', {Truck_ID: this.getTruckId()}).subscribe(res => {
+        if ( localStorage.getItem('access_token') === res['access_token'] ) {
+          this.login = true;
+          return true;
+        } else {
+          this.logout();
+        }     
+      });
+    }
   }
 
-  checkToken(): boolean {
-    var localToken = localStorage.getItem('access_token');
-    var storedToken = null;
-    this.httpClient.post('/checkToken.php', {id: this.getTruckId()}).subscribe(res => {
-      storedToken = res['access_token']
-    });
-    return localToken === storedToken;
-  }
-
-  getTruckId(): number{
+  getTruckId(): number {
     return parseInt(localStorage.getItem('Truck_ID'));
   }
 
   generateToken(id: number) {
-    this.httpClient.get<{access_token: string}>
+    this.httpClient.get<string>
         ('/getToken.php').subscribe(res => {
-          localStorage.setItem('access_token', res['access_token']);
-          this.setToken(id, res['access_token']).subscribe(res => {
+          localStorage.setItem('access_token', res);
+          this.setToken(id, res).subscribe(res => {
           });
         });  
   }
@@ -40,6 +43,8 @@ export class JwtService {
   }
 
   logout() {
+    console.log( "logging out..." );
+    this.login = false;
     localStorage.removeItem('access_token');
     localStorage.removeItem('Truck_ID');
   }

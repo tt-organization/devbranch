@@ -4,9 +4,15 @@
     grid-template-rows:  100px 100px 200px 120px auto;
 }
 
+.backButton {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    margin: 10px;
+}
+
 .map {
     grid-column: 1 / span 2;
-    grid-row: 1 / span 3;
+    grid-row: 2 / span 4;
     margin: 10px;
 }
 
@@ -23,11 +29,11 @@
 }
 
 .location {
-    grid-column: 1 / span 1;
-    grid-row: 4 / span 1;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
 }
 
 .hours {
-    grid-column: 2 / span 1;
-    grid-row: 4 / span 1;
+    grid-column: 3 / span 1;
+    grid-row: 3 / span 3;
 } 
