@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TruckerDataService } from '../../data/trucker-data.service';
-import { NavComponent } from '../../nav/nav.component';
 import { Router } from '@angular/router';
 import { JwtService } from 'src/app/data/jwt.service';
 
@@ -44,13 +43,13 @@ export class LoginComponent implements OnInit {
       this.truck_id = data['Truck_ID'];
       this.message = data['Message'];
 
-      if (this.success) this.redirect();
+      if (this.success) this.redirect(this.truck_id);
     });
   }
 
-  redirect() {
-    this.jwt.generateToken(this.truck_id);
-    localStorage.setItem('Truck_ID', this.truck_id.toString() );
+  redirect(id) {
+    this.jwt.generateToken(id);
+    localStorage.setItem('Truck_ID', id.toString() );
     this.router.navigate(['truck/' + this.jwt.getTruckId()]);
   }
 

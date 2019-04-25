@@ -36,4 +36,8 @@ export class TruckerDataService {
   sendLocation(item){
     return this.http.post('/sendLocation.php', item);
   }
+  
+  updateTruckHours(newHours) {
+    return this.http.post('/updateHours.php', newHours);
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MapServiceService } from './map-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { TruckerDataService } from './../../data/trucker-data.service';
+import { JwtService } from 'src/app/data/jwt.service';
 
 @Component({
   selector: 'app-map',
@@ -24,7 +25,7 @@ export class MapComponent implements OnInit {
   set lat(lat: number) {
     this._lat = (lat);
   }
-  
+
   @Input()
   set long(long: number) {
     this._long = (long);
@@ -32,13 +33,13 @@ export class MapComponent implements OnInit {
 
   get lat() {
     return this._lat;
-  } 
+  }
 
   get long() {
     return this._long;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   OnChooseLocation(event) {
     console.log(event);
