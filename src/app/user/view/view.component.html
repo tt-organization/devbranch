@@ -34,7 +34,7 @@
   <div id="truckList">
       <div id="inner-grid" *ngIf="trucks">
         <div class="surroundTrucks">
-          <div class="eachTruck" *ngFor = "let truck of trucks.Trucks" routerLink="/truck/{{ truck['Truck_ID'] }}">
+          <div class="eachTruck" *ngFor = "let truck of truckList" routerLink="/truck/{{ truck['Truck_ID'] }}">
             <div id="topLine">
               <div id="name">{{ truck.Truck_Name }}</div>
               <div id="open">OPEN TODAY</div>
