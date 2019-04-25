@@ -24,4 +24,8 @@ export class TruckerDataService {
   sendTruckData(truck) {
     return this.http.post('/sendTruck.php', truck);
   }
+
+  updateTruckHours(newHours) {
+    return this.http.post('/updateHours.php', newHours);
+  }
 }

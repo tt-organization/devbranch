@@ -1,7 +1,6 @@
 import { Component, OnInit, Optional } from '@angular/core';
 import { JwtService } from '../data/jwt.service';
 import { Router } from '@angular/router';
-//import { Truck } from '../truck/truck';
 
 @Component({
   selector: 'app-nav',

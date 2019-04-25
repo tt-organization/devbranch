@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public redirect(id) {
+  redirect(id) {
     this.jwt.generateToken(id);
     localStorage.setItem('Truck_ID', id.toString() );
     this.router.navigate(['truck/' + this.jwt.getTruckId()]);
