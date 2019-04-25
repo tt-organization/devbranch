@@ -3,20 +3,20 @@
         <form class="refine" action="">
           <div class="type">
             Filter Results:
-            <label class="container">None
-              <input type="checkbox" checked="checked" id="none" (click)="filterResultsNone(veggie, meat, dessert)" #none>
+            <label class="checkbox-inline">
+              <input type="checkbox" checked="checked" id="none" (click)="filterResultsNone(veggie, meat, dessert)" #none> None
               <span class="checkmark"></span>
             </label>
-            <label class="container">Vegetarian
-              <input type="checkbox" id="veggie" name="veggie" value="veggie" (click)="filterVeggie(none, veggie, meat, dessert)" #veggie>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="veggie" name="veggie" value="veggie" (click)="filterVeggie(none, veggie, meat, dessert)" #veggie>Vegetarian
               <span class="checkmark"></span>
             </label>
-            <label class="container">Meat
-              <input type="checkbox" id="meat" name="meat" value="meat" (click)="filterMeat(none, meat, veggie, dessert)" #meat>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="meat" name="meat" value="meat" (click)="filterMeat(none, meat, veggie, dessert)" #meat>Meat
               <span class="checkmark"></span>
             </label>
-            <label class="container">Dessert
-              <input type="checkbox" id="dessert" name="dessert" value="dessert" (click)="filterDessert(none, dessert, meat, veggie)" #dessert>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="dessert" name="dessert" value="dessert" (click)="filterDessert(none, dessert, meat, veggie)" #dessert>Dessert
               <span class="checkmark"></span>
             </label>
           </div>
