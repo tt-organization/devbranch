@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TruckerDataService } from '../../data/trucker-data.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Truck, initTruck } from '../truck';
 
 @Component({
   selector: 'app-truck-detail',
@@ -10,26 +10,31 @@ import { Observable } from 'rxjs';
 })
 export class TruckDetailComponent implements OnInit {
 
-  id: number;
-  truck: any;
+  truck: Truck;
+  truckLoaded: Promise<boolean>;
 
-  constructor(
-    private data: TruckerDataService, 
-    private route: ActivatedRoute) { 
-      this.route.params.subscribe( params => this.id = params.id );
-    }
+  constructor(private data: TruckerDataService,
+    private route: ActivatedRoute) { }
+
+  getLatitude(): Number {
+    return this.truck.latitude;
+  }
+
+  getLongitude(): Number {
+    return this.truck.longitude;
+  }
 
   ngOnInit() {
-    var request = {
-      Truck_ID: this.id
-    };
-    console.log( "detail... id: " + this.id 
-                + " request: " + request 
-                + " request[Truck_ID] " + request['Truck_ID']);
-    this.data.getTruckInfo(this.id)
-      .subscribe(res => {       
-        this.truck = res;
-        console.log( res );  
+
+    var id;
+    this.route.params.subscribe(params => id = params.id);
+
+    this.data.getTruckInfo(id)
+      .subscribe(res => {
+        console.log(res);
+        this.truck = initTruck(res);
+        console.log(this.truck);
+        this.truckLoaded = Promise.resolve(true);
       });
-  } 
+    }
 }

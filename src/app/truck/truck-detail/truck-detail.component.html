@@ -1,21 +1,29 @@
-<div *ngIf='truck == null || truck.id == -1'>Error! No truck selected</div> 
-<div *ngIf='truck != null && truck.id != -1' class='container'>
+<div class='container'>
+  <button class='backButton' routerLink="/user">Truck List</button>
   <div class='map'>
-    <app-map></app-map>
+    <app-map *ngIf='truckLoaded | async' [lat]='getLatitude()' [long]='getLongitude()'></app-map>
   </div>
 
   <div class='title'>
-    <h2>Title: {{truck.name}}</h2>
+    <h2 *ngIf='truckLoaded | async'>{{truck.name}}</h2>
   </div>
 
-  <div class='location'>
-    <p>location {{truck.location}}</p>
-  </div>
-
-  <div class=hours>
-    <p>hours {{truck.hours}}</p>
+  <div class=hours *ngIf='truckLoaded | async'>
+    <div>Hours of Operation
+      <table class='hoursHeading'>
+        <tr class='dayofweek' *ngFor='let i of truck.hours'>
+          <th>{{i.day}}</th>
+          <td *ngIf='i.open !== i.close'>{{i.open}}</td>          
+          <td *ngIf='i.open === i.close'>Closed</td>
+          <td *ngIf='i.open !== i.close'>to</td>
+          <td *ngIf='i.open === i.close'></td>
+          <td *ngIf='i.open !== i.close'>{{i.close}}</td>
+          <td *ngIf='i.open === i.close'>Closed</td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class='menu'>
     <app-menu></app-menu>
   </div>
-</div> 
+</div>
