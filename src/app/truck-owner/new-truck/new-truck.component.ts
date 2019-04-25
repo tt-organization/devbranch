@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TruckerDataService } from '../../data/trucker-data.service';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-new-truck',
@@ -17,7 +18,10 @@ export class NewTruckComponent implements OnInit {
   string: String = '';
   id: Number;
 
-  constructor(private formBuilder: FormBuilder, private data: TruckerDataService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, 
+    private data: TruckerDataService, 
+    private router: Router,
+    private login: LoginComponent) {
     this.newTruckForm = this.formBuilder.group ({
       truckName: ['', Validators.required],
       sundayOpen: ['', Validators.required],
@@ -68,8 +72,7 @@ export class NewTruckComponent implements OnInit {
       this.string = data['Message'];
       if(data['Success']) {
         var id = data['Truck_ID'];
-        var truck = 'truck/:'.concat(id);
-        this.router.navigate([truck])
+        this.login.redirect(id);
       }
      });
 
