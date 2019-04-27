@@ -1,6 +1,6 @@
 <div id="menuList">
   <div class="title">{{ name }} Menu</div>
-  <div *ngIf="!jwt.loggedIn(); else edit">
+  <div *ngIf="!isMyTruck(); else edit">
     <div id="inner-grid" *ngIf="menu">
       <div class="eachItem" *ngFor="let item of menu">
         <div id="categoryTitle">{{ item["Category_Desc"] }}</div>

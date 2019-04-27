@@ -1,29 +1,32 @@
 <div class='container'>
-  <button class='backButton' routerLink="/user">Truck List</button>
-
+  <button class='backButton' routerLink="/user">Full Truck List</button>
   <div class='map'>
-    <app-map *ngIf='truckLoaded | async' [lat]='getLatitude()' [long]='getLongitude()'></app-map>
+    <app-map *ngIf='truckLoaded | async' [lat]='getLatitude()' [long]='getLongitude()' [id]='getTruckID()'></app-map>
   </div>
 
-  <div class='title'>
-    <h2 *ngIf='truckLoaded | async'>{{truck.name}}</h2>
-  </div>
+  <div class='title' *ngIf='truckLoaded | async'>{{truck.name}}</div>
 
+  
   <div class=hours *ngIf='truckLoaded | async'>
     <div>Hours of Operation
-      <table class='hoursHeading'>
-        <tr class='dayofweek' *ngFor='let i of truck.hours'>
-          <th>{{i.day}}</th>
-          <td *ngIf='i.open !== i.close'>{{i.open}}</td>          
-          <td *ngIf='i.open === i.close'>Closed</td>
-          <td *ngIf='i.open !== i.close'>to</td>
-          <td *ngIf='i.open === i.close'></td>
-          <td *ngIf='i.open !== i.close'>{{i.close}}</td>
-          <td *ngIf='i.open === i.close'>Closed</td>
-        </tr>
-      </table>
+      <app-hours-form *ngIf='isMyTruck(); else readonly' [id]='getTruckID()' [hours]='truck.hours'></app-hours-form> 
+      <ng-template #readonly>
+        <table class='hoursTable'>
+          <tr class='dayofweek' *ngFor='let i of truck.hours'>
+            <th>{{i.day}}</th>
+            <td *ngIf='i.open !== i.close' class='time'>{{i.open}}:00</td>
+            <td *ngIf='i.open === i.close' class='time'>Closed</td>
+            <td *ngIf='i.open !== i.close'>to</td>
+            <td *ngIf='i.open === i.close'></td>
+            <td *ngIf='i.open !== i.close' class='time'>{{i.close}}:00</td>
+            <td *ngIf='i.open === i.close' class='time'>Closed</td>
+          </tr>
+        </table>
+      </ng-template>
     </div>
   </div>
+  
+  
   <div class='menu'>
     <app-menu></app-menu>
   </div>

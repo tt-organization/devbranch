@@ -1,11 +1,9 @@
-import { Menu } from './menu';
-
 export class Truck {
     id: number;
     name: String;
     hours: Object[];
     location: String;
-    menu: Menu[];
+    menu: Object[];
     tags: String[];
     logo: ImageData;
     latitude: number;

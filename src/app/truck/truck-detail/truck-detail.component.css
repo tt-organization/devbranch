@@ -1,13 +1,12 @@
 .container {
     display: grid;
     grid-template-columns: 200px 200px 1fr 1fr;
-    grid-template-rows:  100px 100px 200px 120px auto;
+    grid-template-rows:  100px 500px 500px;
 }
 
 .backButton {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-    margin: 10px;
 }
 
 .map {
@@ -23,17 +22,25 @@
 }
 
 .title {
+    font-size: larger;
+    align-self: center;
     grid-column: 3 / span 2;
     grid-row: 1 / span 1;
     margin: 10px;
 }
 
-.location {
-    grid-column: 3 / span 1;
-    grid-row: 2 / span 1;
+.hours {
+    align-self: left;
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 3;
+    margin: 10px;
+} 
+
+.hoursTable {
+    align-self: left;
+    column-width: 20%;
 }
 
-.hours {
-    grid-column: 3 / span 1;
-    grid-row: 3 / span 3;
-} 
+.time {
+    padding: 10px;
+}
