@@ -1,4 +1,4 @@
-import { JwtService } from './../../data/jwt.service';
+import { JwtService, jwtTokenGetter } from './../../data/jwt.service';
 import { TruckerDataService } from './../../data/trucker-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -70,6 +70,10 @@ export class MenuComponent implements OnInit {
     })
     var index = this.menu.indexOf(item);
     this.menu.splice(index, 1);
+  }
+
+  isMyTruck():boolean {
+    return this.jwt.loggedIn() && this.id == this.jwt.getTruckId();
   }
 
   addItems(items) {

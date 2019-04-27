@@ -6,6 +6,7 @@
 
   <div class='title' *ngIf='truckLoaded | async'>{{truck.name}}</div>
 
+  
   <div class=hours *ngIf='truckLoaded | async'>
     <div>Hours of Operation
       <app-hours-form *ngIf='isMyTruck(); else readonly' [id]='getTruckID()' [hours]='truck.hours'></app-hours-form> 
@@ -24,6 +25,8 @@
       </ng-template>
     </div>
   </div>
+  
+  
   <div class='menu'>
     <app-menu></app-menu>
   </div>
